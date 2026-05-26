@@ -1,7 +1,5 @@
-'use client';
-
-import { useState } from 'react';
-import { cn } from '@/lib/utils';
+import { codeToHtml } from 'shiki';
+import { CodeTabsClient, type Sample } from './CodeTabsClient';
 
 const samples = [
   {
@@ -13,7 +11,8 @@ const samples = [
   -d '{
     "name": "Ceramic Mug",
     "brand": "atlas",
-    "price": 2400
+    "price": 2400,
+    "shelf": "kitchen-essentials"
   }'`,
   },
   {
@@ -27,11 +26,12 @@ await rs.products.create({
   name: 'Ceramic Mug',
   brand: 'atlas',
   price: 2400,
+  shelf: 'kitchen-essentials',
 });`,
   },
   {
     label: 'Python',
-    lang: 'py',
+    lang: 'python',
     code: `from reshelvs import Reshelvs
 
 rs = Reshelvs(api_key=os.environ["RESHELVS_KEY"])
@@ -40,35 +40,39 @@ rs.products.create(
     name="Ceramic Mug",
     brand="atlas",
     price=2400,
+    shelf="kitchen-essentials",
 )`,
   },
 ];
 
-export function CodeTabs() {
-  const [active, setActive] = useState(0);
-  const current = samples[active];
+const theme = {
+  name: 'reshelvs-dark',
+  type: 'dark',
+  colors: {
+    'editor.background': '#0c0c10',
+    'editor.foreground': '#fafafa',
+  },
+  tokenColors: [
+    { scope: ['comment'], settings: { foreground: '#737373', fontStyle: 'italic' } },
+    { scope: ['string', 'string.quoted'], settings: { foreground: '#a5f3fc' } },
+    { scope: ['constant.numeric'], settings: { foreground: '#fbcfe8' } },
+    { scope: ['keyword', 'storage'], settings: { foreground: '#c4b5fd' } },
+    { scope: ['entity.name.function', 'support.function'], settings: { foreground: '#fde68a' } },
+    { scope: ['variable', 'support.variable'], settings: { foreground: '#fafafa' } },
+    { scope: ['punctuation'], settings: { foreground: '#a3a3a3' } },
+  ],
+} as const;
 
-  return (
-    <div className="overflow-hidden rounded-2xl border border-border bg-bg-surface">
-      <div className="flex items-center gap-1 border-b border-border bg-bg-deep/50 px-2 py-2">
-        {samples.map((s, i) => (
-          <button
-            key={s.label}
-            onClick={() => setActive(i)}
-            className={cn(
-              'rounded-md px-3 py-1 text-xs transition-colors',
-              i === active
-                ? 'bg-white/10 text-white'
-                : 'text-fg-muted hover:text-white',
-            )}
-          >
-            {s.label}
-          </button>
-        ))}
-      </div>
-      <pre className="overflow-x-auto p-5 font-mono text-sm leading-relaxed text-fg">
-        <code>{current.code}</code>
-      </pre>
-    </div>
+export async function CodeTabs() {
+  const rendered: Sample[] = await Promise.all(
+    samples.map(async (s) => ({
+      label: s.label,
+      html: await codeToHtml(s.code, {
+        lang: s.lang,
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        theme: theme as any,
+      }),
+    })),
   );
+  return <CodeTabsClient samples={rendered} />;
 }
