@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import { Inter, Instrument_Serif } from 'next/font/google';
 import { Analytics } from '@vercel/analytics/react';
 import { Navbar } from '@/components/nav/Navbar';
 import { Footer } from '@/components/footer/Footer';
@@ -8,6 +8,14 @@ import './globals.css';
 const inter = Inter({
   subsets: ['latin'],
   variable: '--font-sans',
+  display: 'swap',
+});
+
+const serif = Instrument_Serif({
+  subsets: ['latin'],
+  weight: '400',
+  style: ['normal', 'italic'],
+  variable: '--font-serif',
   display: 'swap',
 });
 
@@ -40,7 +48,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className={`${inter.variable} dark`}>
+    <html lang="en" className={`${inter.variable} ${serif.variable} dark`}>
       <body className="min-h-screen bg-bg text-fg font-sans antialiased">
         <Navbar />
         <main className="pt-16">{children}</main>

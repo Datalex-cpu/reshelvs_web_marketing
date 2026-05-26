@@ -43,31 +43,34 @@ void main() {
   vec2 p = uv;
   p.x *= u_resolution.x / u_resolution.y;
 
-  float t = u_time * 0.04;
+  float t = u_time * 0.025;
 
-  // Two layers of slow-drifting fbm warped by themselves (gradient mesh feel)
+  // Single drifting fbm — gentle gradient mesh feel, no colorful warping
   vec2 q = vec2(fbm(p + vec2(0.0, t)), fbm(p + vec2(5.2, -t)));
-  vec2 r = vec2(fbm(p + q + vec2(1.7, 9.2) + t), fbm(p + q + vec2(8.3, 2.8) - t));
-  float n = fbm(p + 1.4 * r);
+  float n = fbm(p + 0.7 * q);
 
-  // Resend-style: nearly black, with subtle violet/cyan/pink veins
-  vec3 black = vec3(0.012, 0.012, 0.016);
-  vec3 ink   = vec3(0.04, 0.03, 0.07);   // dark violet
-  vec3 cyan  = vec3(0.10, 0.30, 0.42);   // muted cyan
-  vec3 pink  = vec3(0.30, 0.10, 0.25);   // muted magenta
+  // Resend-style: near-pure black with the faintest cool/warm light
+  vec3 black = vec3(0.008, 0.008, 0.010);
+  vec3 cool  = vec3(0.025, 0.028, 0.040);  // barely-blue
+  vec3 warm  = vec3(0.040, 0.030, 0.028);  // barely-warm
+  vec3 hi    = vec3(0.085, 0.085, 0.095);  // soft highlight
 
   vec3 col = black;
-  col = mix(col, ink,  smoothstep(0.35, 0.85, n));
-  col = mix(col, cyan, smoothstep(0.55, 0.95, n) * 0.55);
-  col = mix(col, pink, smoothstep(0.65, 1.05, length(r)) * 0.35);
+  col = mix(col, cool, smoothstep(0.35, 0.85, n) * 0.85);
+  col = mix(col, warm, smoothstep(0.55, 1.0, n) * 0.35);
 
-  // Radial vignette toward center-top
-  vec2 c = uv - vec2(0.5, 0.35);
-  float vig = 1.0 - smoothstep(0.0, 0.95, length(c) * 1.05);
-  col *= 0.55 + 0.65 * vig;
+  // Soft light from upper-right (where a product image would sit)
+  vec2 lightPos = vec2(0.78, 0.30);
+  float light = 1.0 - smoothstep(0.0, 0.55, length(uv - lightPos));
+  col = mix(col, hi, light * 0.45);
 
-  // Subtle film grain
-  float grain = (hash(gl_FragCoord.xy + u_time) - 0.5) * 0.015;
+  // Radial vignette toward center
+  vec2 c = uv - vec2(0.5, 0.4);
+  float vig = 1.0 - smoothstep(0.0, 1.0, length(c) * 1.1);
+  col *= 0.55 + 0.55 * vig;
+
+  // Very subtle film grain
+  float grain = (hash(gl_FragCoord.xy + u_time) - 0.5) * 0.010;
   col += grain;
 
   fragColor = vec4(col, 1.0);
@@ -166,8 +169,7 @@ export function ShaderHero({ className = '' }: { className?: string }) {
       className={`pointer-events-none absolute inset-0 -z-10 overflow-hidden ${className}`}
     >
       <canvas ref={ref} className="h-full w-full" />
-      <div className="absolute inset-0 grid-bg opacity-40" />
-      <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-bg to-transparent" />
+      <div className="absolute inset-x-0 bottom-0 h-56 bg-gradient-to-t from-bg to-transparent" />
     </div>
   );
 }

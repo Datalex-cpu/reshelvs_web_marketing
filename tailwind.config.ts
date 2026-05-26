@@ -32,8 +32,9 @@ const config: Config = {
         },
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        display: ['"Inter Display"', 'Inter', 'system-ui', 'sans-serif'],
+        sans: ['var(--font-sans)', 'Inter', 'system-ui', 'sans-serif'],
+        serif: ['var(--font-serif)', '"Instrument Serif"', 'Georgia', 'serif'],
+        display: ['var(--font-serif)', '"Instrument Serif"', 'Georgia', 'serif'],
         mono: ['"Geist Mono"', '"JetBrains Mono"', 'ui-monospace', 'monospace'],
       },
       backgroundImage: {
