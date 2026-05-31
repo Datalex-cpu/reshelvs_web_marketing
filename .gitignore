@@ -39,3 +39,6 @@ next-env.d.ts
 # editor
 .idea/
 .vscode/
+
+# npm cache
+npm-cache/

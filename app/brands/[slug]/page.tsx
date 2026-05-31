@@ -5,48 +5,60 @@ interface Params {
   params: { slug: string };
 }
 
+const labels: Record<string, string> = {
+  'brand-owners': 'Brand owners',
+  distributors: 'Distributors',
+  retailers: 'Retailers',
+  'field-reps': 'Field reps',
+};
+
 export function generateMetadata({ params }: Params) {
-  const name = params.slug.charAt(0).toUpperCase() + params.slug.slice(1);
+  const name = labels[params.slug] ?? toTitle(params.slug);
   return {
-    title: `${name} — Case study`,
-    description: `How ${name} is building its next chapter on Reshelvs.`,
+    title: `${name} on Reshelvs`,
+    description: `How ${name.toLowerCase()} run field execution on Reshelvs.`,
   };
 }
 
-export default function BrandCaseStudy({ params }: Params) {
-  const name = params.slug.charAt(0).toUpperCase() + params.slug.slice(1);
+export default function SegmentPage({ params }: Params) {
+  const name = labels[params.slug] ?? toTitle(params.slug);
   return (
     <Section>
-      <Eyebrow>Case study</Eyebrow>
-      <h1 className="mt-5 max-w-3xl font-display text-5xl font-medium tracking-tight md:text-6xl">
+      <Eyebrow>Solution</Eyebrow>
+      <h1 className="mt-5 max-w-3xl font-display text-5xl font-medium tracking-display md:text-6xl">
         {name} on Reshelvs.
       </h1>
       <p className="mt-6 max-w-xl text-fg-muted">
-        A short, opinionated story of why {name} chose Reshelvs and what
-        shipped first.
+        A short look at how {name.toLowerCase()} use Reshelvs to run their
+        field — and what changes on day one.
       </p>
 
       <div className="mt-16 grid gap-10 md:grid-cols-3">
-        <Stat label="Conversion lift" value="+34%" />
-        <Stat label="Time to launch" value="11 days" />
-        <Stat label="Active surfaces" value="6" />
+        <Stat label="Avg. onboarding" value="90s" />
+        <Stat label="Visit time saved" value="40 min" />
+        <Stat label="Attendance disputes" value="-100%" />
       </div>
 
       <div className="mt-16 max-w-2xl space-y-6 text-fg-muted">
         <p>
-          {name} needed a single source of truth for product, inventory,
-          and discovery — without losing the editorial feel that made the
-          brand what it is.
+          Most {name.toLowerCase()} we work with are stitching together an
+          attendance tracker, a paper audit form, an Excel route plan, and
+          a weekly BI export. Reshelvs replaces all four with one platform
+          — the rep app, the supervisor console, and the admin portal sharing
+          the same Firestore source of truth.
         </p>
         <p>
-          With Reshelvs, the team launched a new storefront, plugged into
-          their existing OMS, and shipped a mobile shelf in under two
-          weeks.
+          The result: routes that auto-generate against today's reality,
+          OSA you see the moment a rep photographs a shelf, and a clean
+          audit log of every check-in, every visit, every order.
         </p>
       </div>
 
-      <div className="mt-12">
-        <Button href="#waitlist">Get started like {name}</Button>
+      <div className="mt-12 flex flex-wrap gap-3">
+        <Button href="#waitlist">Get started</Button>
+        <Button variant="secondary" href="/contact">
+          Talk to sales
+        </Button>
       </div>
     </Section>
   );
@@ -55,12 +67,19 @@ export default function BrandCaseStudy({ params }: Params) {
 function Stat({ label, value }: { label: string; value: string }) {
   return (
     <div className="rounded-2xl border border-border bg-bg-surface p-6">
-      <div className="font-display text-4xl font-semibold tracking-tight">
-        {value}
+      <div className="num font-display text-4xl font-medium tracking-display">
+        <span className="text-gradient">{value}</span>
       </div>
       <div className="mt-2 text-xs uppercase tracking-[0.15em] text-fg-subtle">
         {label}
       </div>
     </div>
   );
+}
+
+function toTitle(s: string) {
+  return s
+    .split('-')
+    .map((p) => p.charAt(0).toUpperCase() + p.slice(1))
+    .join(' ');
 }

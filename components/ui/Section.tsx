@@ -20,13 +20,35 @@ export function Section({ id, className, children }: SectionProps) {
 interface EyebrowProps {
   children: React.ReactNode;
   className?: string;
+  /**
+   * `chip` (default) — bordered pill with hairline.
+   * `bare` — uppercase text only, no chip. Quieter, used inside section headers
+   * where the chip would compete with the headline below it.
+   */
+  variant?: 'chip' | 'bare';
 }
 
-export function Eyebrow({ children, className }: EyebrowProps) {
+export function Eyebrow({
+  children,
+  className,
+  variant = 'chip',
+}: EyebrowProps) {
+  if (variant === 'bare') {
+    return (
+      <div
+        className={cn(
+          'inline-flex items-center gap-2 text-xs uppercase tracking-[0.18em] text-fg-subtle',
+          className,
+        )}
+      >
+        {children}
+      </div>
+    );
+  }
   return (
     <div
       className={cn(
-        'inline-flex items-center gap-2 rounded-full border border-border bg-white/[0.03] px-3 py-1 text-xs uppercase tracking-[0.15em] text-fg-muted',
+        'inline-flex items-center gap-2 rounded-full border border-border px-3 py-1 text-xs uppercase tracking-[0.15em] text-fg-muted',
         className,
       )}
     >

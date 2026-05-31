@@ -3,88 +3,164 @@ import { Button } from '@/components/ui/Button';
 import { AnimatedGradient } from '@/components/hero/AnimatedGradient';
 import { WaitlistForm } from '@/components/hero/WaitlistForm';
 import { BrandMarquee } from '@/components/marquee/BrandMarquee';
+import { TrustedBy } from '@/components/marquee/TrustedBy';
 import { FeatureBento } from '@/components/bento/FeatureBento';
 import { CodeTabs } from '@/components/code/CodeTabs';
+import { Stats } from '@/components/stats/Stats';
+import { ProductPreview } from '@/components/preview/ProductPreview';
+import { Testimonial } from '@/components/testimonial/Testimonial';
+import { IntegrationsGrid } from '@/components/integrations/IntegrationsGrid';
 
 export default function HomePage() {
   return (
     <>
+      {/* Hero */}
       <section className="relative overflow-hidden">
         <AnimatedGradient />
-        <div className="mx-auto max-w-5xl px-6 pb-24 pt-28 text-center md:pt-40">
+        <div className="mx-auto max-w-5xl px-6 pb-14 pt-16 text-center md:pt-24">
           <Eyebrow className="mx-auto">
-            <span className="inline-block h-1.5 w-1.5 rounded-full bg-emerald-400" />
+            <span className="inline-block h-1.5 w-1.5 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.6)]" />
             Now in private beta
           </Eyebrow>
-          <h1 className="mx-auto mt-6 max-w-3xl font-display text-5xl font-medium leading-[1.05] tracking-tight md:text-7xl">
-            The modern shelf for{' '}
-            <span className="text-brand-gradient">your brands</span>.
+          <h1 className="mx-auto mt-6 max-w-5xl font-display text-5xl font-medium leading-[1.02] tracking-display sm:text-6xl md:text-7xl lg:text-8xl">
+            The operating system for{' '}
+            <span className="text-gradient">FMCG field teams</span>.
           </h1>
-          <p className="mx-auto mt-6 max-w-xl text-base text-fg-muted md:text-lg">
-            Reshelvs is the platform for brands that want to be discovered,
-            organized, and loved. Beautiful storefronts, smart shelves, and a
-            headless API — built for the next decade of commerce.
+          <p className="mx-auto mt-5 max-w-xl text-base text-fg-muted md:text-lg">
+            Routes, visits, on-shelf availability, and field reports — in one
+            platform built for the way your field actually works.
           </p>
-          <div className="mx-auto mt-10 flex flex-col items-center gap-4">
+          <div className="mx-auto mt-8 flex flex-col items-center gap-4">
             <WaitlistForm />
-            <p className="text-xs text-fg-subtle">
-              No spam. We'll email you when your shelf is ready.
-            </p>
+            <div className="flex flex-wrap items-center justify-center gap-x-4 gap-y-2 text-xs text-fg-subtle">
+              <span>No credit card.</span>
+              <span aria-hidden>·</span>
+              <span>90-second onboarding.</span>
+              <span aria-hidden>·</span>
+              <a href="/product" className="hover:text-fg">
+                See the product →
+              </a>
+            </div>
           </div>
+        </div>
+
+        {/* Trusted by — above-the-fold social proof */}
+        <div className="pb-10">
+          <TrustedBy />
+        </div>
+
+        {/* Product preview — slides up under hero */}
+        <div className="mx-auto max-w-6xl px-6 pb-16">
+          <ProductPreview />
         </div>
       </section>
 
       <BrandMarquee />
 
-      <Section>
-        <div className="mb-14 text-center">
-          <Eyebrow className="mx-auto">Features</Eyebrow>
-          <h2 className="mx-auto mt-5 max-w-2xl font-display text-4xl font-medium tracking-tight md:text-5xl">
-            Everything brands need.{' '}
-            <span className="text-fg-muted">Nothing they don't.</span>
+      {/* Stats */}
+      <Section className="!py-20 md:!py-24">
+        <Stats />
+      </Section>
+
+      {/* Features bento */}
+      <Section className="!pt-0">
+        <div className="mb-14 max-w-2xl">
+          <Eyebrow>Features</Eyebrow>
+          <h2 className="mt-5 font-display text-4xl font-medium tracking-display md:text-5xl">
+            Everything your field team needs.{' '}
+            <span className="text-fg-muted">Nothing it doesn't.</span>
           </h2>
+          <p className="mt-5 text-fg-muted">
+            Six surfaces — built to replace the patchwork of point apps,
+            paper checklists, and weekly spreadsheets that FMCG teams have
+            put up with for years.
+          </p>
         </div>
         <FeatureBento />
       </Section>
 
+      {/* Developer / integrations */}
       <Section>
         <div className="grid items-center gap-12 md:grid-cols-2">
           <div>
-            <Eyebrow>Developer first</Eyebrow>
-            <h2 className="mt-5 font-display text-4xl font-medium tracking-tight md:text-5xl">
-              A headless API for every surface.
+            <Eyebrow>API & integrations</Eyebrow>
+            <h2 className="mt-5 font-display text-4xl font-medium tracking-display md:text-5xl">
+              Pipe the field into your stack.
             </h2>
             <p className="mt-5 max-w-md text-fg-muted">
-              Ship a storefront in minutes or compose your own with our
-              type-safe SDK. Webhooks, GraphQL, REST — your call.
+              A typed REST API and webhooks for every event your team cares
+              about — visits, OSA readings, orders, payments, attendance.
+              ERP, BI, and DMS integrations included.
             </p>
-            <div className="mt-8 flex gap-3">
+            <div className="mt-8 flex flex-wrap gap-3">
               <Button href="/docs">Read the docs</Button>
               <Button variant="secondary" href="/product">
                 Explore product
               </Button>
+            </div>
+            <div className="mt-8">
+              <IntegrationsGrid />
             </div>
           </div>
           <CodeTabs />
         </div>
       </Section>
 
+      {/* Testimonial */}
+      <Section>
+        <Testimonial />
+      </Section>
+
+      {/* Why Reshelvs — three pillars */}
+      <Section>
+        <div className="mb-14 max-w-2xl">
+          <Eyebrow>Why Reshelvs</Eyebrow>
+          <h2 className="mt-5 font-display text-4xl font-medium tracking-display md:text-5xl">
+            Built for the GCC.{' '}
+            <span className="text-fg-muted">Ready for the world.</span>
+          </h2>
+        </div>
+        <div className="grid gap-4 md:grid-cols-3">
+          {pillars.map((p) => (
+            <div
+              key={p.title}
+              className="rounded-2xl border border-border bg-bg-surface p-6"
+            >
+              <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-fg/5 font-mono text-sm">
+                {p.glyph}
+              </div>
+              <h3 className="font-display text-lg font-medium tracking-tight">
+                {p.title}
+              </h3>
+              <p className="mt-2 text-sm text-fg-muted">{p.body}</p>
+            </div>
+          ))}
+        </div>
+      </Section>
+
+      {/* Final CTA */}
       <Section>
         <div className="relative overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-bg-surface to-bg-deep p-10 md:p-16">
-          <div className="absolute -right-20 -top-20 h-72 w-72 rounded-full bg-accent-violet/30 blur-3xl" />
-          <div className="absolute -bottom-24 -left-16 h-64 w-64 rounded-full bg-accent-cyan/20 blur-3xl" />
-          <div className="relative max-w-xl">
-            <Eyebrow>Get started</Eyebrow>
-            <h2 className="mt-5 font-display text-4xl font-medium tracking-tight md:text-5xl">
-              Build the shelf you've always wanted.
-            </h2>
-            <p className="mt-5 text-fg-muted">
-              Join the brands going live on Reshelvs. It takes five minutes.
-            </p>
-            <div className="mt-8 flex gap-3">
-              <Button href="#waitlist">Join the waitlist</Button>
-              <Button variant="secondary" href="/contact">
-                Talk to us
+          <div className="absolute -right-20 -top-20 h-72 w-72 rounded-full bg-fg/[0.07] blur-3xl" />
+          <div className="absolute -bottom-24 -left-16 h-64 w-64 rounded-full bg-fg/[0.04] blur-3xl" />
+          <div className="relative grid items-center gap-8 md:grid-cols-[1fr_auto]">
+            <div className="max-w-xl">
+              <Eyebrow>Get started</Eyebrow>
+              <h2 className="mt-5 font-display text-4xl font-medium tracking-display md:text-5xl">
+                Spin up your tenant in 90 seconds.
+              </h2>
+              <p className="mt-5 text-fg-muted">
+                Join the FMCG teams going live on Reshelvs. Free to try, no
+                credit card. Bring your team and your stores — we'll handle
+                the rest.
+              </p>
+            </div>
+            <div className="flex flex-col gap-3 sm:flex-row md:flex-col">
+              <Button href="#waitlist" size="lg">
+                Join the waitlist
+              </Button>
+              <Button variant="secondary" href="/contact" size="lg">
+                Talk to sales
               </Button>
             </div>
           </div>
@@ -93,3 +169,24 @@ export default function HomePage() {
     </>
   );
 }
+
+const pillars = [
+  {
+    glyph: 'AR',
+    title: 'Arabic-first, RTL native',
+    body:
+      'Every surface — rep app, admin portal, reports — is built RTL-first. Not a translated bolt-on.',
+  },
+  {
+    glyph: 'MT',
+    title: 'Multi-tenant by design',
+    body:
+      'One tenant, many companies, many brands. Distributors with mixed portfolios are first-class.',
+  },
+  {
+    glyph: 'GP',
+    title: 'GPS you can trust',
+    body:
+      'Mock-location rejection, geofence enforcement, and tamper-proof attendance — built in, not bought in.',
+  },
+];

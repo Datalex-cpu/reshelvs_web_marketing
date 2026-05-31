@@ -38,16 +38,18 @@ export function WaitlistForm() {
       <input
         type="email"
         required
+        aria-label="Work email"
+        autoComplete="email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
-        placeholder="you@brand.com"
-        className="h-12 flex-1 rounded-full border border-border bg-white/[0.04] px-5 text-sm text-white placeholder:text-fg-subtle focus:border-border-strong focus:outline-none"
+        placeholder="you@company.com"
+        className="h-12 flex-1 rounded-full border border-border bg-fg/[0.04] px-5 text-sm text-fg placeholder:text-fg-subtle focus:border-border-strong focus:outline-none"
       />
       <button
         type="submit"
         disabled={state === 'loading'}
         className={cn(
-          'h-12 rounded-full bg-white px-6 text-sm font-medium text-black transition-all hover:bg-white/90 disabled:opacity-50',
+          'h-12 rounded-full bg-fg px-6 text-sm font-medium text-bg transition-all hover:bg-fg/90 disabled:opacity-50',
         )}
       >
         {state === 'loading' ? 'Joining…' : 'Join waitlist'}

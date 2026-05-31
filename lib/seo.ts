@@ -2,7 +2,7 @@ export const SITE = {
   name: 'Reshelvs',
   url: 'https://reshelvs.com',
   description:
-    'The modern shelf for your brands. Be discovered, organized, and loved.',
+    'The operating system for FMCG field teams. Routes, store visits, on-shelf availability, and field reports — in one platform.',
   twitter: '@reshelvs',
 };
 

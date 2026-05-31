@@ -1,44 +1,116 @@
-import Link from 'next/link';
 import { Section, Eyebrow } from '@/components/ui/Section';
-import { Card } from '@/components/ui/Card';
+import { Button } from '@/components/ui/Button';
 import { pageMetadata } from '@/lib/seo';
 
 export const metadata = pageMetadata(
-  'Brands',
-  'The brands building their next chapter on Reshelvs.',
+  'Solutions',
+  'How Reshelvs fits brand owners, distributors, retailers, and the field reps walking the stores.',
 );
 
-const brands = [
-  { slug: 'atlas', name: 'Atlas', tagline: 'Modern home essentials' },
-  { slug: 'vector', name: 'Vector', tagline: 'Performance gear' },
-  { slug: 'northwind', name: 'Northwind', tagline: 'Slow-made apparel' },
-  { slug: 'quill', name: 'Quill', tagline: 'Stationery & paper' },
-  { slug: 'foundry', name: 'Foundry', tagline: 'Tools for makers' },
-  { slug: 'helios', name: 'Helios', tagline: 'Outdoor & travel' },
-  { slug: 'lumen', name: 'Lumen', tagline: 'Lighting design' },
-  { slug: 'mercator', name: 'Mercator', tagline: 'Maps & prints' },
-  { slug: 'orbit', name: 'Orbit', tagline: 'Audio for the home' },
+const segments = [
+  {
+    id: 'brand-owners',
+    tag: 'Brand owners',
+    title: 'See your shelves, not your forms',
+    body:
+      'Get AI-vision OSA, share-of-shelf, and planogram compliance across distributors you don\'t directly own. Sample audits without bolting on point apps.',
+    points: [
+      'AI shelf vision: facings, OSA, SOS',
+      'Cross-distributor visibility',
+      'Planogram & POSM compliance',
+      'Trade-marketing scheme tracking',
+    ],
+  },
+  {
+    id: 'distributors',
+    tag: 'Distributors',
+    title: 'Run mixed-portfolio fleets',
+    body:
+      'One tenant, many companies, many brands. RBAC, multi-company isolation, and per-channel visit flows let one distributor service every principal in one app.',
+    points: [
+      'Multi-company per tenant',
+      'Route auto-gen + geo-clustering',
+      'Field productivity KPIs',
+      'ERP / DMS integrations',
+    ],
+  },
+  {
+    id: 'retailers',
+    tag: 'Retailers',
+    title: 'In-store execution, on time',
+    body:
+      'For modern-trade chains running their own merchandising teams. Geofenced attendance, planogram audits, and replenishment reports your category managers can act on.',
+    points: [
+      'Geofenced check-in',
+      'Planogram audits',
+      'Replenishment fill rate',
+      'Store-class chip lookup',
+    ],
+  },
+  {
+    id: 'field-reps',
+    tag: 'Field reps',
+    title: 'Less paperwork. More selling.',
+    body:
+      'A mobile app that actually respects the rep — biometric unlock, offline-first, native nav hand-off, voice notes, and a visit flow that takes seconds, not minutes.',
+    points: [
+      'Biometric unlock + offline cache',
+      'One-tap navigation hand-off',
+      'Voice notes + photo capture',
+      'No more end-of-day data entry',
+    ],
+  },
 ];
 
-export default function BrandsPage() {
+export default function SolutionsPage() {
   return (
     <Section>
-      <Eyebrow>Brands</Eyebrow>
-      <h1 className="mt-5 max-w-3xl font-display text-5xl font-medium tracking-tight md:text-6xl">
-        Brands on the shelf.
+      <Eyebrow>Solutions</Eyebrow>
+      <h1 className="mt-5 max-w-3xl font-display text-5xl font-medium tracking-display md:text-6xl">
+        One platform.{' '}
+        <span className="text-fg-muted">Every role in the field.</span>
       </h1>
       <p className="mt-6 max-w-xl text-fg-muted">
-        A curated set of brands using Reshelvs to be discovered.
+        Reshelvs is built around four people: the rep walking the route, the
+        supervisor planning beats, the brand owner tracking shelves, and the
+        distributor running the whole show.
       </p>
-      <div className="mt-16 grid grid-cols-1 gap-4 md:grid-cols-3">
-        {brands.map((b) => (
-          <Link key={b.slug} href={`/brands/${b.slug}`}>
-            <Card className="h-full">
-              <div className="mb-6 h-24 w-24 rounded-xl bg-brand-gradient opacity-80" />
-              <h3 className="font-display text-xl font-semibold">{b.name}</h3>
-              <p className="mt-1 text-sm text-fg-muted">{b.tagline}</p>
-            </Card>
-          </Link>
+
+      <div className="mt-16 space-y-16">
+        {segments.map((s, i) => (
+          <section
+            key={s.id}
+            id={s.id}
+            className="grid items-start gap-10 border-t border-border pt-16 md:grid-cols-[1fr_1.4fr]"
+          >
+            <div>
+              <div className="text-xs uppercase tracking-[0.15em] text-fg-subtle">
+                {String(i + 1).padStart(2, '0')} · {s.tag}
+              </div>
+              <h2 className="mt-3 font-display text-3xl font-medium tracking-tight md:text-4xl">
+                {s.title}
+              </h2>
+            </div>
+            <div>
+              <p className="text-fg-muted">{s.body}</p>
+              <ul className="mt-6 grid gap-2 sm:grid-cols-2">
+                {s.points.map((p) => (
+                  <li
+                    key={p}
+                    className="flex items-start gap-2 rounded-md border border-border bg-bg-surface px-3 py-2 text-sm"
+                  >
+                    <span className="mt-0.5 text-fg/80">✓</span>
+                    <span>{p}</span>
+                  </li>
+                ))}
+              </ul>
+              <div className="mt-6">
+                <Button variant="secondary" href={`/brands/${s.id}`}>
+                  Read more →
+                </Button>
+              </div>
+            </div>
+          </section>
         ))}
       </div>
     </Section>

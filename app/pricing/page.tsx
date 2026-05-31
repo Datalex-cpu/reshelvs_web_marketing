@@ -1,35 +1,59 @@
 import { Section, Eyebrow } from '@/components/ui/Section';
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
+import { FAQ } from '@/components/faq/FAQ';
 import { pageMetadata } from '@/lib/seo';
 
 export const metadata = pageMetadata(
   'Pricing',
-  'Simple, transparent pricing. Start free, scale as you grow.',
+  'Simple, transparent pricing. Start free, scale as your field team grows.',
 );
 
 const tiers = [
   {
     name: 'Starter',
     price: 'Free',
-    blurb: 'For new brands launching their first shelf.',
-    features: ['1 storefront', 'Up to 100 products', 'Community support'],
+    suffix: '',
+    blurb: 'For a single team running their first beats.',
+    features: [
+      'Up to 5 field reps',
+      '1 company per tenant',
+      'Up to 250 stores',
+      'Core visit flow (10 task types)',
+      'Community support',
+    ],
     cta: 'Get started',
     highlight: false,
   },
   {
     name: 'Growth',
-    price: '$49',
-    blurb: 'For brands ready to scale discovery and revenue.',
-    features: ['Unlimited products', 'Custom domain', 'Insights & exports', 'Email support'],
+    price: '$12',
+    suffix: '/ rep / mo',
+    blurb: 'For distributors and brand teams scaling field execution.',
+    features: [
+      'Unlimited stores',
+      'Up to 5 companies per tenant',
+      'All visit-flow templates',
+      'AI shelf vision (OSA)',
+      'API + webhooks',
+      'Email + chat support',
+    ],
     cta: 'Start free trial',
     highlight: true,
   },
   {
     name: 'Scale',
     price: 'Custom',
-    blurb: 'For teams with multiple brands and surfaces.',
-    features: ['SSO', 'SLA', 'Dedicated CSM', 'Headless API quota'],
+    suffix: '',
+    blurb: 'For multi-tenant operators, large distributors, and enterprises.',
+    features: [
+      'Unlimited companies',
+      'Custom RBAC + SSO (SAML / OIDC)',
+      'Dedicated CSM + SLA',
+      'On-prem / VPC option',
+      'ERP & DMS integrations',
+      'Audit log export',
+    ],
     cta: 'Talk to sales',
     highlight: false,
   },
@@ -40,11 +64,12 @@ export default function PricingPage() {
     <Section>
       <div className="text-center">
         <Eyebrow className="mx-auto">Pricing</Eyebrow>
-        <h1 className="mx-auto mt-5 max-w-2xl font-display text-5xl font-medium tracking-tight md:text-6xl">
-          Simple. <span className="text-fg-muted">Honest.</span>
+        <h1 className="mx-auto mt-5 max-w-2xl font-display text-5xl font-medium tracking-display md:text-6xl">
+          Simple. <span className="text-fg-muted">Per-rep. Honest.</span>
         </h1>
-        <p className="mx-auto mt-6 max-w-md text-fg-muted">
-          Start free. Pay for what scales with you. No surprises.
+        <p className="mx-auto mt-6 max-w-lg text-fg-muted">
+          Pay only for the reps actively in the field. No setup fees, no
+          minimums, no surprises.
         </p>
       </div>
       <div className="mt-16 grid grid-cols-1 gap-5 md:grid-cols-3">
@@ -56,23 +81,26 @@ export default function PricingPage() {
             <div className="text-xs uppercase tracking-[0.15em] text-fg-subtle">
               {t.name}
             </div>
-            <div className="mt-3 font-display text-5xl font-medium tracking-tight">
-              {t.price}
-              {t.price !== 'Free' && t.price !== 'Custom' && (
-                <span className="text-base text-fg-muted">/mo</span>
+            <div className="num mt-3 flex items-baseline gap-1.5 font-display">
+              <span className="text-5xl font-medium tracking-display">
+                {t.price}
+              </span>
+              {t.suffix && (
+                <span className="text-sm text-fg-muted">{t.suffix}</span>
               )}
             </div>
             <p className="mt-3 text-sm text-fg-muted">{t.blurb}</p>
             <ul className="mt-6 space-y-2 text-sm">
               {t.features.map((f) => (
-                <li key={f} className="flex items-center gap-2 text-fg">
-                  <span className="text-accent-cyan">✓</span> {f}
+                <li key={f} className="flex items-start gap-2 text-fg">
+                  <span className="mt-0.5 text-fg/80">✓</span>
+                  <span>{f}</span>
                 </li>
               ))}
             </ul>
             <div className="mt-8">
               <Button
-                href="#waitlist"
+                href={t.name === 'Scale' ? '/contact' : '#waitlist'}
                 variant={t.highlight ? 'primary' : 'secondary'}
                 className="w-full"
               >
@@ -82,6 +110,63 @@ export default function PricingPage() {
           </Card>
         ))}
       </div>
+      <div className="mt-12 text-center text-xs text-fg-subtle">
+        Prices in USD. Local billing available for KSA, UAE, and Egypt.
+      </div>
+
+      <div className="mt-32">
+        <div className="mb-10 max-w-2xl">
+          <Eyebrow>FAQ</Eyebrow>
+          <h2 className="mt-5 font-display text-4xl font-medium tracking-display md:text-5xl">
+            Questions before you spin up.
+          </h2>
+        </div>
+        <FAQ items={faqs} />
+        <p className="mt-8 text-sm text-fg-muted">
+          Something we didn't cover?{' '}
+          <a
+            href="/contact"
+            className="text-fg underline-offset-4 hover:underline"
+          >
+            Ask sales →
+          </a>
+        </p>
+      </div>
     </Section>
   );
 }
+
+const faqs = [
+  {
+    q: 'Where does our data live?',
+    a: 'Production data sits in Google Cloud (Firestore) in regional configurations. Enterprise plans can pin data to a specific region — KSA, UAE, or EU — at tenant creation. We do not move data across regions without explicit consent.',
+  },
+  {
+    q: 'Is the rep app Arabic-first?',
+    a: 'Yes. Every surface — rep app, admin portal, reports — is built RTL-first. Arabic is the default for GCC tenants; English is one toggle away. Translation is in-house, not Google-translated.',
+  },
+  {
+    q: 'What happens when a rep loses connectivity in-store?',
+    a: 'The rep app is offline-first. Visits, OSA captures, attendance, and notes are written locally and synced when connectivity returns. The supervisor console shows a clear "queued" state for anything not yet synced.',
+  },
+  {
+    q: 'How does mock-GPS rejection actually work?',
+    a: 'Reshelvs runs an on-device signature check that detects mock-location apps, combined with a geofence-enforced check-in window. If either flag trips, the check-in is rejected at the device and surfaced to the supervisor — no phantom attendance gets into your data.',
+  },
+  {
+    q: 'Can we use Reshelvs for one brand or many?',
+    a: 'Both. A tenant can contain one company (single-brand) or many companies (a distributor running multiple principals). RBAC and visit-flow templates are scoped per company so portfolios stay isolated.',
+  },
+  {
+    q: 'What integrations are available?',
+    a: 'A typed REST API and webhooks for every event your downstream systems care about — visits, OSA readings, orders, payments, attendance. First-class connectors for SAP, Oracle NetSuite, Odoo, Power BI, Tableau, and Slack. Enterprise plans get a generic SFTP feed and bespoke connectors.',
+  },
+  {
+    q: 'What does the rollout actually look like?',
+    a: 'Starter tenants self-serve in about 90 seconds. For Growth and Scale customers we run a guided rollout: one route → one company → full fleet, over two to six weeks. We do not stage-gate features by rollout phase — every customer gets the full product on day one.',
+  },
+  {
+    q: 'Can we leave?',
+    a: 'Yes. Tenant admins can export their operational data from the admin portal at any time — JSON for events, CSV for tables. On termination we keep your export available for 30 days and delete on request.',
+  },
+];
