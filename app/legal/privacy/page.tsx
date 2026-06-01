@@ -86,7 +86,12 @@ export default function PrivacyPage() {
         <p>
           You can request access, export, correction, or deletion of your
           personal data at any time. Tenant admins can export operational
-          data directly from the admin portal.
+          data directly from the admin portal. To delete your account and
+          data, see{' '}
+          <a className="text-fg" href="/legal/delete-account">
+            Delete your account &amp; data
+          </a>
+          .
         </p>
       </Section>
 

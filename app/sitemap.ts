@@ -18,6 +18,7 @@ const STATIC_ROUTES: { path: string; priority: number }[] = [
   { path: '/login', priority: 0.3 },
   { path: '/legal/privacy', priority: 0.2 },
   { path: '/legal/terms', priority: 0.2 },
+  { path: '/legal/delete-account', priority: 0.2 },
 ];
 
 const BRAND_SLUGS = ['brand-owners', 'distributors', 'retailers', 'field-reps'];

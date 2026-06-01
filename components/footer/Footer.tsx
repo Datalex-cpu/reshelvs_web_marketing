@@ -32,6 +32,7 @@ const groups = [
       { href: '/contact', label: 'Contact' },
       { href: '/legal/privacy', label: 'Privacy' },
       { href: '/legal/terms', label: 'Terms' },
+      { href: '/legal/delete-account', label: 'Delete account' },
       { href: 'https://status.reshelvs.com', label: 'Status' },
     ],
   },
