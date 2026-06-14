@@ -96,9 +96,9 @@ export default function MarketplacePage() {
         </h2>
         <p className="mt-3 max-w-xl text-fg-muted">
           The public REST API v1 exposes stores, routes, and visits — bearer
-          token, OAuth2 client_credentials. Read the OpenAPI spec at{' '}
-          <Link href="/docs/api" className="underline">
-            /docs/api
+          token, OAuth2 client_credentials. Read the OpenAPI spec in the{' '}
+          <Link href="/docs" className="underline">
+            developer docs
           </Link>{' '}
           to build a custom connector.
         </p>
