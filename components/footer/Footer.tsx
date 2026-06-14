@@ -12,6 +12,7 @@ const groups = [
       { href: '/product#reports', label: 'Reports & KPIs' },
       { href: '/pricing', label: 'Pricing' },
       { href: '/changelog', label: 'Changelog' },
+      { href: '/developers', label: 'Developers' },
     ],
   },
   {
