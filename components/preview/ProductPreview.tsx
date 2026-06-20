@@ -15,6 +15,12 @@ export function ProductPreview() {
         <DashboardMock />
         <PhoneMock />
       </div>
+      {/* Honesty affordance: this is a designed preview, not a screen capture
+          of the live product (private beta). Keeps the mock from reading as a
+          real screenshot on close inspection. */}
+      <p className="relative mt-5 text-center text-[11px] text-fg-subtle">
+        Representative interface — a product preview, not a live screenshot.
+      </p>
     </div>
   );
 }

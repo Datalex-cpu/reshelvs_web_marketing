@@ -40,8 +40,8 @@ Worked top-to-bottom by the self-paced `/loop`. Check items off as shipped.
 
 ## Backlog (medium/low)
 
-- [ ] Relabel headline stat band (10k+ stores, <1s) as design targets — `components/stats/Stats.tsx`
-- [ ] "Representative interface — not a live screenshot" caption on ProductPreview
+- [x] Relabel headline stat band (10k+ stores, <1s) as design targets — `components/stats/Stats.tsx` — added a "platform capacity and design targets" caption framing all four numbers
+- [x] "Representative interface — not a live screenshot" caption on ProductPreview
 - [ ] Replace ~9 hand-rolled Card-surface divs with `<Card>` (9 pages)
 - [ ] Use `<Section>` in `app/legal/layout.tsx`
 - [ ] Marketplace status pill → theme-aware / `<Badge>`

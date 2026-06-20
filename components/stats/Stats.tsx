@@ -28,6 +28,12 @@ export function Stats() {
           </div>
         ))}
       </div>
+      {/* Honest framing: these are platform capacity/design targets, not
+          measured customer benchmarks (we're in private beta). */}
+      <div className="relative border-t border-border px-8 py-3 text-center text-xs text-fg-subtle">
+        Platform capacity and design targets — independent benchmarks to
+        follow as private beta expands.
+      </div>
     </div>
   );
 }
