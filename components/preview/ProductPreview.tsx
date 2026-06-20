@@ -76,10 +76,10 @@ function DashboardMock() {
           {/* row list */}
           <div className="space-y-1.5">
             {[
-              ['08:12', 'Carrefour Olaya', 'OSA 92%', 'done'],
-              ['09:04', 'Panda Al Murouj', 'OSA 78%', 'done'],
-              ['10:18', 'Tamimi Hittin', 'in visit', 'live'],
-              ['11:30', 'Othaim Yarmouk', 'queued', 'queued'],
+              ['08:12', 'Hypermarket · Olaya', 'OSA 92%', 'done'],
+              ['09:04', 'Supermarket · Al Murouj', 'OSA 78%', 'done'],
+              ['10:18', 'Supermarket · Hittin', 'in visit', 'live'],
+              ['11:30', 'Mini-market · Yarmouk', 'queued', 'queued'],
             ].map(([time, name, status, state]) => (
               <div
                 key={name}
@@ -115,7 +115,7 @@ function PhoneMock() {
         <div className="absolute left-1/2 top-2 z-10 h-5 w-24 -translate-x-1/2 rounded-full bg-black/80" />
         <div className="overflow-hidden rounded-[28px] bg-bg-surface px-4 pb-5 pt-10">
           <div className="text-[10px] uppercase tracking-[0.18em] text-fg-subtle">
-            Visit · Carrefour Olaya
+            Visit · Hypermarket, Olaya
           </div>
           <div className="mt-2 font-display text-base font-medium text-white">
             On-shelf check

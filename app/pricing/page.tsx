@@ -143,7 +143,7 @@ const faqs = [
   },
   {
     q: 'Is the rep app Arabic-first?',
-    a: 'Yes. Every surface — rep app, admin portal, reports — is built RTL-first. Arabic is the default for GCC tenants; English is one toggle away. Translation is in-house, not Google-translated.',
+    a: 'Arabic and right-to-left are in the foundation — not a translated bolt-on — and we’re rolling that out across surfaces, rep app first, then admin and reports. English is always available, and translation is in-house, not machine-translated. Tell us your tenant’s default language and we’ll confirm exactly what’s live today.',
   },
   {
     q: 'What happens when a rep loses connectivity in-store?',
@@ -159,7 +159,7 @@ const faqs = [
   },
   {
     q: 'What integrations are available?',
-    a: 'A typed REST API and webhooks for every event your downstream systems care about — visits, OSA readings, orders, payments, attendance. First-class connectors for SAP, Oracle NetSuite, Odoo, Power BI, Tableau, and Slack. Enterprise plans get a generic SFTP feed and bespoke connectors.',
+    a: 'A typed REST API and webhooks for the events your downstream systems care about — visits, OSA readings, orders, payments, attendance — are in private-beta preview. Connectors for SAP, Oracle NetSuite, Odoo, Power BI, Tableau, and Slack are on the roadmap; enterprise plans get a generic SFTP feed and bespoke connectors. Ask us what’s callable today.',
   },
   {
     q: 'What does the rollout actually look like?',

@@ -14,9 +14,9 @@ export function generateStaticParams() {
 
 export function generateMetadata({ params }: Params) {
   const c = getCustomer(params.slug);
-  if (!c) return { title: 'Case study not found' };
+  if (!c) return { title: 'Scenario not found' };
   return {
-    title: `${c.company} — case study`,
+    title: `${c.title} — scenario`,
     description: c.tagline,
   };
 }
@@ -42,14 +42,21 @@ export default function CustomerStory({ params }: Params) {
           </Eyebrow>
         </div>
         <h1 className="mt-5 font-display text-4xl font-medium leading-tight tracking-display md:text-5xl">
-          {c.company}
+          {c.title}
         </h1>
         <p className="mt-4 font-display text-xl text-fg-muted md:text-2xl">
           {c.tagline}
         </p>
+        <p className="mt-6 inline-flex items-center gap-2 rounded-full border border-border bg-bg-surface px-3 py-1 text-xs text-fg-subtle">
+          Illustrative scenario · Reshelvs is in private beta — figures below
+          are design targets, not customer results.
+        </p>
 
-        <div className="mt-12 grid grid-cols-1 gap-6 sm:grid-cols-3">
-          {c.metrics.map((m) => (
+        <div className="mt-10 text-xs uppercase tracking-[0.15em] text-fg-subtle">
+          Illustrative targets
+        </div>
+        <div className="mt-4 grid grid-cols-1 gap-6 sm:grid-cols-3">
+          {c.targets.map((m) => (
             <div
               key={m.label}
               className="rounded-2xl border border-border bg-bg-surface p-6"
@@ -70,31 +77,14 @@ export default function CustomerStory({ params }: Params) {
           ))}
         </div>
 
-        <figure className="mt-16 rounded-2xl border border-border bg-bg-surface p-8 md:p-10">
-          <blockquote className="font-display text-2xl font-medium leading-snug tracking-tight text-fg md:text-3xl">
-            "{c.quote}"
-          </blockquote>
-          <figcaption className="mt-6 flex items-center gap-3">
-            <span
-              aria-hidden
-              className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-border bg-bg-raised font-display text-xs font-medium text-fg"
-            >
-              {c.attribution.name
-                .split(' ')
-                .map((n) => n[0])
-                .join('')
-                .slice(0, 2)}
-            </span>
-            <div>
-              <div className="text-sm font-medium text-fg">
-                {c.attribution.name}
-              </div>
-              <div className="text-xs text-fg-muted">
-                {c.attribution.role} · {c.company}
-              </div>
-            </div>
-          </figcaption>
-        </figure>
+        <div className="mt-16 rounded-2xl border border-border bg-bg-surface p-8 md:p-10">
+          <p className="font-display text-2xl font-medium leading-snug tracking-tight text-fg md:text-3xl">
+            {c.thesis}
+          </p>
+          <p className="mt-6 text-xs uppercase tracking-[0.15em] text-fg-subtle">
+            What Reshelvs is built to do · private beta
+          </p>
+        </div>
 
         <div className="mt-12 flex flex-wrap gap-3">
           <Button href="/#waitlist">Run on Reshelvs</Button>
@@ -107,7 +97,7 @@ export default function CustomerStory({ params }: Params) {
       {others.length > 0 && (
         <Section className="!pt-0 max-w-3xl">
           <div className="border-t border-border pt-12">
-            <Eyebrow>More stories</Eyebrow>
+            <Eyebrow>More scenarios</Eyebrow>
             <div className="mt-8 grid gap-4 md:grid-cols-2">
               {others.map((o) => (
                 <Link
@@ -120,7 +110,7 @@ export default function CustomerStory({ params }: Params) {
                       {o.segment} · {o.region}
                     </div>
                     <div className="mt-2 font-display text-lg font-medium tracking-tight text-fg">
-                      {o.company}
+                      {o.title}
                     </div>
                     <div className="mt-1 text-sm text-fg-muted">
                       {o.tagline}

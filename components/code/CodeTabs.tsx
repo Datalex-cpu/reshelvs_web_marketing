@@ -146,6 +146,9 @@ export function CodeTabs() {
       >
         <code>{current.code}</code>
       </pre>
+      <div className="relative border-t border-border bg-bg-deep/30 px-5 py-2.5 text-[11px] text-fg-subtle">
+        API preview — available to design partners in private beta.
+      </div>
     </div>
   );
 }

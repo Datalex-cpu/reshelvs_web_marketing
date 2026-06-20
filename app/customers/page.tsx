@@ -6,7 +6,7 @@ import { customers } from '@/content/customers';
 
 export const metadata = pageMetadata(
   'Customers',
-  'Distributors, brand owners, and retail operators using Reshelvs to run the field.',
+  'How distributors, brand owners, and retail operators use Reshelvs to run the field — illustrative scenarios from a private-beta product.',
 );
 
 const segments = [
@@ -36,11 +36,15 @@ export default function CustomersPage() {
       <Section>
         <Eyebrow>Customers</Eyebrow>
         <h1 className="mt-5 max-w-3xl font-display text-5xl font-medium tracking-display md:text-6xl">
-          Built with the teams running the field.
+          Built for the teams that run the field.
         </h1>
         <p className="mt-6 max-w-xl text-fg-muted">
           From single-brand startups to multi-company distributors —
-          Reshelvs powers the people who actually walk the stores.
+          Reshelvs is built for the people who actually walk the stores.
+        </p>
+        <p className="mt-6 inline-flex items-center gap-2 rounded-full border border-border bg-bg-surface px-3 py-1 text-xs text-fg-subtle">
+          Illustrative scenarios · Reshelvs is in private beta — no named
+          customers yet.
         </p>
         <div className="mt-16 grid gap-4 md:grid-cols-3">
           {customers.map((c) => (
@@ -54,36 +58,16 @@ export default function CustomersPage() {
                   {c.segment} · {c.region}
                 </div>
                 <h3 className="mt-3 font-display text-xl font-medium tracking-tight text-fg">
-                  {c.company}
+                  {c.title}
                 </h3>
                 <p className="mt-2 max-w-md text-sm text-fg-muted">
                   {c.tagline}
                 </p>
-                <blockquote className="mt-6 font-display text-base leading-relaxed text-fg/90">
-                  "{c.quote}"
-                </blockquote>
-                <div className="mt-6 flex items-center gap-3">
-                  <span
-                    aria-hidden
-                    className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border bg-bg-raised font-display text-xs font-medium text-fg"
-                  >
-                    {c.attribution.name
-                      .split(' ')
-                      .map((n) => n[0])
-                      .join('')
-                      .slice(0, 2)}
-                  </span>
-                  <div>
-                    <div className="text-sm font-medium">
-                      {c.attribution.name}
-                    </div>
-                    <div className="text-xs text-fg-muted">
-                      {c.attribution.role}
-                    </div>
-                  </div>
-                </div>
+                <p className="mt-6 font-display text-base leading-relaxed text-fg/90">
+                  {c.thesis}
+                </p>
                 <div className="mt-6 text-xs text-fg-subtle transition-colors group-hover:text-fg">
-                  Read the story →
+                  Read the scenario →
                 </div>
               </Card>
             </Link>
@@ -95,7 +79,7 @@ export default function CustomersPage() {
         <div className="mb-10 max-w-2xl">
           <Eyebrow>Segments</Eyebrow>
           <h2 className="mt-5 font-display text-4xl font-medium tracking-display md:text-5xl">
-            Who runs on Reshelvs.
+            Who Reshelvs is built for.
           </h2>
         </div>
         <div className="grid gap-4 md:grid-cols-3">
