@@ -1,9 +1,10 @@
 import type { ReactNode } from 'react';
+import { Section } from '@/components/ui/Section';
 
 export default function LegalLayout({ children }: { children: ReactNode }) {
   return (
-    <div className="mx-auto w-full max-w-3xl px-6 py-24 md:py-32">
+    <Section className="max-w-3xl">
       <div className="prose-legal text-fg-muted">{children}</div>
-    </div>
+    </Section>
   );
 }

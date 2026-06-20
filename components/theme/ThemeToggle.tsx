@@ -69,7 +69,7 @@ export function ThemeToggle() {
       {open && (
         <div
           role="menu"
-          className="absolute right-0 top-full mt-2 w-40 rounded-xl border border-hairline bg-bg-surface p-1 shadow-lg backdrop-blur"
+          className="absolute right-0 top-full mt-2 w-40 rounded-xl border border-hairline bg-bg-surface p-1 backdrop-blur [box-shadow:0_0_0_1px_var(--glint)_inset]"
         >
           <ThemeMenuItem
             icon={<Sun className="h-4 w-4" />}

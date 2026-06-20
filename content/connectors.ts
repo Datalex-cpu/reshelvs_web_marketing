@@ -10,6 +10,10 @@
  *   - "live"     : ships in the product, callable today
  *   - "beta"     : available behind a flag for design partners
  *   - "soon"     : announced; not callable yet
+ *
+ * NOTE — Reshelvs is in private beta: nothing here is generally available
+ * ("live") yet. Listings are design-partner beta or announced. Promote a
+ * connector to "live" only once it is genuinely callable in production.
  */
 
 export type ConnectorCategory =
@@ -39,7 +43,7 @@ export const connectors: Connector[] = [
     slug: 'sap-s4hana',
     name: 'SAP S/4HANA',
     category: 'erp',
-    status: 'live',
+    status: 'beta',
     vendor: 'SAP SE',
     blurb:
       'Push visit completions and goods-receipt movements to SAP S/4HANA via the Integration Suite.',
@@ -63,7 +67,7 @@ export const connectors: Connector[] = [
     slug: 'salesforce-crm',
     name: 'Salesforce CRM',
     category: 'crm',
-    status: 'live',
+    status: 'beta',
     vendor: 'Salesforce, Inc.',
     blurb:
       'Two-way sync of accounts (stores) and contacts (store owners) between Salesforce and Reshelvs.',
@@ -129,7 +133,7 @@ export const connectors: Connector[] = [
     slug: 'slack',
     name: 'Slack',
     category: 'communication',
-    status: 'live',
+    status: 'beta',
     vendor: 'Slack Technologies',
     blurb:
       'Route smart alerts and daily briefs into a Slack channel of your choice.',

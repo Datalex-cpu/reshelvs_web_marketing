@@ -43,9 +43,10 @@ Worked top-to-bottom by the self-paced `/loop`. Check items off as shipped.
 - [x] Relabel headline stat band (10k+ stores, <1s) as design targets — `components/stats/Stats.tsx` — added a "platform capacity and design targets" caption framing all four numbers
 - [x] "Representative interface — not a live screenshot" caption on ProductPreview
 - [ ] Replace ~9 hand-rolled Card-surface divs with `<Card>` (9 pages)
-- [ ] Use `<Section>` in `app/legal/layout.tsx`
-- [ ] Marketplace status pill → theme-aware / `<Badge>`
-- [ ] Lower 2 chrome wordmarks `font-semibold` → `font-medium` (Navbar, Footer)
+- [x] Use `<Section>` in `app/legal/layout.tsx`
+- [x] Marketplace status pill → theme-aware (now uses border/fg tokens — the
+  `text-white` pill was invisible on light theme)
+- [x] Lower 2 chrome wordmarks `font-semibold` → `font-medium` (Navbar, Footer)
 - [ ] Route 3 dynamic detail pages' metadata through `pageMetadata()`
 - [x] Fix operator-precedence bug in OG image `siteUrl` (yields `https://undefined`) — done alongside #5
 - [ ] Add `focus-visible` rings to bare nav/FAQ/footer/announcement links
@@ -53,5 +54,20 @@ Worked top-to-bottom by the self-paced `/loop`. Check items off as shipped.
 - [ ] Fix careers heading-level skip (h1 → h3)
 - [ ] Associate ContactForm labels with inputs; stronger focus cue
 - [ ] Make product-mock internals theme-aware (light-mode rendering)
-- [ ] Remove `shadow-lg` on theme-toggle dropdown
+- [x] Remove `shadow-lg` on theme-toggle dropdown (now border + inset glint)
+
+### Found mid-loop (not in original audit) — credibility
+
+- [x] **Marketplace API overclaim** — `/marketplace` "Build your own" said
+  "The public REST API v1 exposes…" present-tense; softened to
+  "(private-beta preview)". Intro "ships first-party connectors" →
+  "is building".
+- [x] **Connector statuses** — SAP / Salesforce / Slack were marked **Live
+  (callable today)** for a private-beta product with a non-public API.
+  Downgraded all `live` → `beta`; added a roadmap disclaimer on the page +
+  a note in `content/connectors.ts`. ⚠️ If any connector is genuinely live,
+  promote it back.
+- [ ] **Connector detail descriptions** still read present-tense
+  ("the connector posts…", "hourly job pulls…") on `/marketplace/[slug]`.
+  Reword to design-partner-beta framing in a later pass.
 - [ ] Align small-heading tracking with the scale rule (polish)

@@ -65,7 +65,7 @@ export function Navbar() {
         >
           <Link
             href="/"
-            className="flex items-center gap-2.5 text-sm font-semibold text-fg"
+            className="flex items-center gap-2.5 text-sm font-medium text-fg"
             aria-label="Reshelvs home"
             onClick={() => setOpen(false)}
           >

@@ -56,7 +56,7 @@ export function Footer() {
         <div className="col-span-2">
           <Link
             href="/"
-            className="flex items-center gap-2.5 text-sm font-semibold text-fg"
+            className="flex items-center gap-2.5 text-sm font-medium text-fg"
             aria-label="Reshelvs home"
           >
             <LogoMark className="h-5 w-5" />

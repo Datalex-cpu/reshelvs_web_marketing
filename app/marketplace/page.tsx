@@ -39,10 +39,13 @@ export default function MarketplacePage() {
         Reshelvs in the systems you already run.
       </h1>
       <p className="mt-6 max-w-2xl text-fg-muted">
-        Visits don&apos;t live in isolation. Reshelvs ships first-party
-        connectors to the ERP, CRM, and commerce systems your team is
-        already paying for — so the data flows both ways without an SI
-        project.
+        Visits don&apos;t live in isolation. Reshelvs is building first-party
+        connectors to the ERP, CRM, and commerce systems your team already
+        runs — so data flows both ways without an SI project.
+      </p>
+      <p className="mt-6 inline-flex items-center gap-2 rounded-full border border-border bg-bg-surface px-3 py-1 text-xs text-fg-subtle">
+        Availability reflects our roadmap — Reshelvs is in private beta.
+        Connectors are in design-partner beta or announced.
       </p>
 
       {CATEGORY_ORDER.map((cat) => {
@@ -72,10 +75,10 @@ export default function MarketplacePage() {
                         className={
                           'rounded-full border px-2 py-0.5 text-[10px] uppercase tracking-wider ' +
                           (c.status === 'live'
-                            ? 'border-white/30 text-white'
+                            ? 'border-border-strong text-fg'
                             : c.status === 'beta'
-                              ? 'border-white/20 text-fg-muted'
-                              : 'border-white/10 text-fg-muted')
+                              ? 'border-border text-fg-muted'
+                              : 'border-border text-fg-subtle')
                         }
                       >
                         {STATUS_LABEL[c.status]}
@@ -95,8 +98,8 @@ export default function MarketplacePage() {
           Build your own
         </h2>
         <p className="mt-3 max-w-xl text-fg-muted">
-          The public REST API v1 exposes stores, routes, and visits — bearer
-          token, OAuth2 client_credentials. Read the OpenAPI spec in the{' '}
+          The REST API (private-beta preview) exposes stores, routes, and
+          visits — bearer token, OAuth2 client_credentials. See the{' '}
           <Link href="/docs" className="underline">
             developer docs
           </Link>{' '}
