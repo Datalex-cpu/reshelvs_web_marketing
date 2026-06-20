@@ -52,7 +52,9 @@ Worked top-to-bottom by the self-paced `/loop`. Check items off as shipped.
 - [x] Marketplace status pill → theme-aware (now uses border/fg tokens — the
   `text-white` pill was invisible on light theme)
 - [x] Lower 2 chrome wordmarks `font-semibold` → `font-medium` (Navbar, Footer)
-- [ ] Route 3 dynamic detail pages' metadata through `pageMetadata()`
+- [x] Route 3 dynamic detail pages' metadata through `pageMetadata()` —
+  blog/customers/brands `[slug]` now go through the helper (customers + brands
+  gained OG tags they lacked; blog keeps its `type: article` + `publishedTime`)
 - [x] Fix operator-precedence bug in OG image `siteUrl` (yields `https://undefined`) — done alongside #5
 - [x] Add `focus-visible` rings to bare nav/FAQ/footer/announcement links — added a shared `.focus-ring` utility in globals.css (keyboard-only, 2px fg ring) and applied it across Navbar, Footer, AnnouncementBar, FAQ
 - [x] Complete FAQ accordion ARIA (`aria-controls`, `id`, `role="region"`, `aria-labelledby`)
@@ -72,7 +74,10 @@ Worked top-to-bottom by the self-paced `/loop`. Check items off as shipped.
   Downgraded all `live` → `beta`; added a roadmap disclaimer on the page +
   a note in `content/connectors.ts`. ⚠️ If any connector is genuinely live,
   promote it back.
-- [ ] **Connector detail descriptions** still read present-tense
-  ("the connector posts…", "hourly job pulls…") on `/marketplace/[slug]`.
-  Reword to design-partner-beta framing in a later pass.
+- [x] **Connector detail descriptions** — SAP / Salesforce / Slack now lead
+  with "In design-partner beta." so the present-tense detail reads as intended
+  beta behaviour, not a shipped GA capability. (Shopify/NetSuite were already
+  beta/announced-framed.)
+- [x] **Brands `[slug]` stats** — "40 min saved", "-100% disputes" were
+  asserted as facts; added an "illustrative targets · private beta" caption.
 - [ ] Align small-heading tracking with the scale rule (polish)

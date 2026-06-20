@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { Section, Eyebrow } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
+import { pageMetadata } from '@/lib/seo';
 import { getCustomer, customers } from '@/content/customers';
 
 interface Params {
@@ -16,10 +17,7 @@ export function generateStaticParams() {
 export function generateMetadata({ params }: Params) {
   const c = getCustomer(params.slug);
   if (!c) return { title: 'Scenario not found' };
-  return {
-    title: `${c.title} — scenario`,
-    description: c.tagline,
-  };
+  return pageMetadata(`${c.title} — scenario`, c.tagline);
 }
 
 export default function CustomerStory({ params }: Params) {

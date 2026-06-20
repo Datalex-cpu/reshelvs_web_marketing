@@ -1,6 +1,7 @@
 import { Section, Eyebrow } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
+import { pageMetadata } from '@/lib/seo';
 
 interface Params {
   params: { slug: string };
@@ -15,10 +16,10 @@ const labels: Record<string, string> = {
 
 export function generateMetadata({ params }: Params) {
   const name = labels[params.slug] ?? toTitle(params.slug);
-  return {
-    title: `${name} on Reshelvs`,
-    description: `How ${name.toLowerCase()} run field execution on Reshelvs.`,
-  };
+  return pageMetadata(
+    `${name} on Reshelvs`,
+    `How ${name.toLowerCase()} run field execution on Reshelvs.`,
+  );
 }
 
 export default function SegmentPage({ params }: Params) {
@@ -39,6 +40,10 @@ export default function SegmentPage({ params }: Params) {
         <Stat label="Visit time saved" value="40 min" />
         <Stat label="Attendance disputes" value="-100%" />
       </div>
+      <p className="mt-4 text-xs text-fg-subtle">
+        Illustrative targets — Reshelvs is in private beta, not measured
+        customer results.
+      </p>
 
       <div className="mt-16 max-w-2xl space-y-6 text-fg-muted">
         <p>

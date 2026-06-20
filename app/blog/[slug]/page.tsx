@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 import { Section, Eyebrow } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
+import { pageMetadata } from '@/lib/seo';
 import { getPost, posts } from '@/content/posts';
 
 interface Params {
@@ -16,12 +17,11 @@ export function generateStaticParams() {
 export function generateMetadata({ params }: Params) {
   const post = getPost(params.slug);
   if (!post) return { title: 'Post not found' };
+  const meta = pageMetadata(post.title, post.excerpt);
   return {
-    title: post.title,
-    description: post.excerpt,
+    ...meta,
     openGraph: {
-      title: `${post.title} · Reshelvs`,
-      description: post.excerpt,
+      ...meta.openGraph,
       type: 'article',
       publishedTime: post.date,
     },

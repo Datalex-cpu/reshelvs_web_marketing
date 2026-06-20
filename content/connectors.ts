@@ -48,7 +48,7 @@ export const connectors: Connector[] = [
     blurb:
       'Push visit completions and goods-receipt movements to SAP S/4HANA via the Integration Suite.',
     description:
-      'When a Reshelvs visit completes with a replenishment task, the connector posts a material-document (movement type 501) to SAP. Each restocked SKU becomes a line item. Bidirectional sync of material master is planned for Q4.',
+      'In design-partner beta. When a Reshelvs visit completes with a replenishment task, the connector posts a material-document (movement type 501) to SAP — each restocked SKU as a line item. Bidirectional sync of material master is planned for Q4.',
     capabilities: [
       'Visit-complete webhook to SAP BTP Integration Suite',
       'Material document line items per restocked SKU',
@@ -72,7 +72,7 @@ export const connectors: Connector[] = [
     blurb:
       'Two-way sync of accounts (stores) and contacts (store owners) between Salesforce and Reshelvs.',
     description:
-      'Hourly job pulls modified Accounts via SOQL, upserts as Reshelvs stores keyed on `sf:{accountId}`. Stores updated in Reshelvs get pushed back to Salesforce via the Account REST endpoint. A Lightning component for the manager dashboard ships separately.',
+      'In design-partner beta. An hourly job pulls modified Accounts via SOQL and upserts them as Reshelvs stores keyed on `sf:{accountId}`; stores updated in Reshelvs are pushed back via the Account REST endpoint. A Lightning component for the manager dashboard ships separately.',
     capabilities: [
       'Hourly bidirectional sync (Account ↔ Store)',
       'Contact ↔ store-contact mapping',
@@ -138,7 +138,7 @@ export const connectors: Connector[] = [
     blurb:
       'Route smart alerts and daily briefs into a Slack channel of your choice.',
     description:
-      'Lightweight, no OAuth dance. Add a Slack incoming webhook to your tenant, choose the channel, pick which alert types to forward. Daily AI brief delivered as a single Slack post at 07:00 local each morning.',
+      'In design-partner beta. Lightweight — no OAuth dance: add a Slack incoming webhook to your tenant, choose the channel, and pick which alert types to forward. A daily AI brief is delivered as a single Slack post at 07:00 local each morning.',
     capabilities: [
       'Smart-alert relay (OSA drop, churn risk, promo failure, price war, etc.)',
       'Daily AI brief delivery',
