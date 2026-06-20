@@ -67,6 +67,14 @@ Worked top-to-bottom by the self-paced `/loop`. Check items off as shipped.
   light-default theme — a real rendering bug, now fixed.
 - [x] Remove `shadow-lg` on theme-toggle dropdown (now border + inset glint)
 
+### Round 2 — found reviewing least-touched pages
+
+- [x] **Dead `#waitlist` CTAs** — the waitlist form (`id="waitlist"`) lives only
+  on the home page, but `/product`, `/pricing`, `/changelog`, `/brands/[slug]`,
+  and the announcement bar (on every page) linked to bare `#waitlist` → scrolled
+  to nothing off-home. Fixed all to `/#waitlist`; the conversion CTA now works
+  site-wide. Home keeps `#waitlist` (same-page).
+
 ### Found mid-loop (not in original audit) — credibility
 
 - [x] **Marketplace API overclaim** — `/marketplace` "Build your own" said

@@ -100,7 +100,7 @@ export default function PricingPage() {
             </ul>
             <div className="mt-8">
               <Button
-                href={t.name === 'Scale' ? '/contact' : '#waitlist'}
+                href={t.name === 'Scale' ? '/contact' : '/#waitlist'}
                 variant={t.highlight ? 'primary' : 'secondary'}
                 className="w-full"
               >

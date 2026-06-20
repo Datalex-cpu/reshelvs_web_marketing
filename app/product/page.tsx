@@ -45,7 +45,7 @@ export default function ProductPage() {
           for FMCG field execution.
         </p>
         <div className="mt-10 flex flex-wrap gap-3">
-          <Button href="#waitlist">Join the waitlist</Button>
+          <Button href="/#waitlist">Join the waitlist</Button>
           <Button variant="secondary" href="/contact">
             Book a demo
           </Button>

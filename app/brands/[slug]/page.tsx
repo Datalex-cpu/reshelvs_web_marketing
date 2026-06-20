@@ -61,7 +61,7 @@ export default function SegmentPage({ params }: Params) {
       </div>
 
       <div className="mt-12 flex flex-wrap gap-3">
-        <Button href="#waitlist">Get started</Button>
+        <Button href="/#waitlist">Get started</Button>
         <Button variant="secondary" href="/contact">
           Talk to sales
         </Button>

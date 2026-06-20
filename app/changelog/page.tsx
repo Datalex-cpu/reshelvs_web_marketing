@@ -58,7 +58,7 @@ export default function ChangelogPage() {
       </h1>
       <p className="mt-6 max-w-xl text-fg-muted">
         Updates land every week or so. Subscribe via{' '}
-        <a href="#waitlist" className="text-fg hover:underline">
+        <a href="/#waitlist" className="text-fg hover:underline">
           the waitlist
         </a>{' '}
         to get them in your inbox.
