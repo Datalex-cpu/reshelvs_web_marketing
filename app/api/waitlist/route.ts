@@ -20,6 +20,8 @@ export async function POST(req: Request) {
       return NextResponse.json({ ok: true, queued: true });
     }
 
+    const from = process.env.RESEND_FROM ?? 'hello@reshelvs.com';
+
     if (process.env.RESEND_AUDIENCE_ID) {
       await resend.contacts.create({
         email,
@@ -27,8 +29,23 @@ export async function POST(req: Request) {
       });
     }
 
+    // Internal notification so waitlist signups are visible to the team,
+    // not just sitting in the Resend audience. Non-fatal if it fails.
+    const notify = process.env.CONTACT_INBOX ?? 'sales@reshelvs.com';
+    try {
+      await resend.emails.send({
+        from: `Reshelvs Waitlist <${from}>`,
+        to: notify,
+        reply_to: email,
+        subject: `New waitlist signup — ${email}`,
+        text: `New waitlist signup: ${email}`,
+      });
+    } catch {
+      // Swallow — the user-facing confirmation below is what matters.
+    }
+
     await resend.emails.send({
-      from: process.env.RESEND_FROM ?? 'hello@reshelvs.com',
+      from,
       to: email,
       subject: "You're on the Reshelvs waitlist",
       html: `

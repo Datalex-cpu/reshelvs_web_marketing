@@ -173,9 +173,9 @@ export default function HomePage() {
 const pillars = [
   {
     glyph: 'AR',
-    title: 'Arabic-first, RTL native',
+    title: 'Built for Arabic & RTL',
     body:
-      'Every surface — rep app, admin portal, reports — is built RTL-first. Not a translated bolt-on.',
+      'Designed GCC-first with Arabic and right-to-left in the foundation — not a translated bolt-on. Rolling out across surfaces.',
   },
   {
     glyph: 'MT',

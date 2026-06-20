@@ -39,6 +39,7 @@ export async function POST(req: Request) {
 
   const apiKey = process.env.RESEND_API_KEY;
   const notify = process.env.CONTACT_INBOX ?? 'sales@reshelvs.com';
+  const from = process.env.RESEND_FROM ?? 'hello@reshelvs.com';
   if (!apiKey) {
     // Dev / preview without secrets — accept silently.
     return NextResponse.json({ ok: true });
@@ -52,7 +53,7 @@ export async function POST(req: Request) {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        from: 'Reshelvs Site <site@reshelvs.com>',
+        from: `Reshelvs Site <${from}>`,
         to: notify,
         reply_to: email,
         subject: `Contact form — ${body.reason ?? 'general'}`,
