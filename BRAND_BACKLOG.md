@@ -25,17 +25,18 @@ Worked top-to-bottom by the self-paced `/loop`. Check items off as shipped.
   CodeTabs carries an "API preview" caption; pricing Arabic + integrations
   FAQs softened to match shipped reality.
 
-## Do next — brand + a11y pass (high)
+## Do next — brand + a11y pass (high) — ✅ SHIPPED 2026-06-20
 
-- [ ] **5. Pull status colors out of chrome** — `components/hero/WaitlistForm.tsx`,
-  `components/contact/ContactForm.tsx`, `app/page.tsx`, `app/opengraph-image.tsx`.
-  Replace emerald/rose status text with mono tokens (also fixes WCAG).
-  **NOTE:** the announcement-bar emerald is *explicitly permitted* by
-  DESIGN_SYSTEM.md — leave `AnnouncementBar.tsx` alone unless the user
-  tightens that doc.
-- [ ] **6. Light-theme contrast + iPhone-393 hero wrap** — `app/globals.css`,
-  `app/page.tsx`. Darken `--fg-subtle` #9b9b9b → ~#767676 (AA); hold the
-  hero noun phrase together at 393px.
+- [x] **5. Pull status colors out of chrome** — both forms now use mono
+  tokens (success → `text-fg-muted`, error → `text-fg`); hero eyebrow dot
+  `bg-emerald-400` → `bg-fg/70` (glow dropped); OG status dot `#10b981` →
+  `#6b6b6b`. `AnnouncementBar.tsx` left as-is (DESIGN_SYSTEM.md permits it).
+  Remaining emerald/rose are inside product mocks (ProductPreview,
+  FeatureBento) only — allowed.
+- [x] **6. Light-theme contrast + iPhone-393 hero wrap** — `--fg-subtle`
+  #9b9b9b → **#737373** (verified 4.54:1 on #fafafa — AA; the audit's
+  #767676 was only 4.35:1). Hero "operating system" wrapped in a
+  `whitespace-nowrap` span so it holds together at 393px.
 
 ## Backlog (medium/low)
 
@@ -46,7 +47,7 @@ Worked top-to-bottom by the self-paced `/loop`. Check items off as shipped.
 - [ ] Marketplace status pill → theme-aware / `<Badge>`
 - [ ] Lower 2 chrome wordmarks `font-semibold` → `font-medium` (Navbar, Footer)
 - [ ] Route 3 dynamic detail pages' metadata through `pageMetadata()`
-- [ ] Fix operator-precedence bug in OG image `siteUrl` (yields `https://undefined`)
+- [x] Fix operator-precedence bug in OG image `siteUrl` (yields `https://undefined`) — done alongside #5
 - [ ] Add `focus-visible` rings to bare nav/FAQ/footer/announcement links
 - [ ] Complete FAQ accordion ARIA (`aria-controls`, `id`, `role="region"`)
 - [ ] Fix careers heading-level skip (h1 → h3)

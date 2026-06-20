@@ -24,9 +24,9 @@ export const contentType = 'image/png';
 export default async function OG() {
   const siteUrl =
     process.env.NEXT_PUBLIC_SITE_URL ??
-    process.env.VERCEL_URL ?
-      `https://${process.env.VERCEL_URL}` :
-      'https://reshelvs.com';
+    (process.env.VERCEL_URL
+      ? `https://${process.env.VERCEL_URL}`
+      : 'https://reshelvs.com');
   const logoUrl = `${siteUrl}/reshelvs_ios_logo.png`;
 
   return new ImageResponse(
@@ -113,7 +113,7 @@ export default async function OG() {
                 width: 8,
                 height: 8,
                 borderRadius: 999,
-                background: '#10b981',
+                background: '#6b6b6b',
                 display: 'flex',
               }}
             />

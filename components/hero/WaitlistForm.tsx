@@ -58,7 +58,9 @@ export function WaitlistForm() {
         <p
           className={cn(
             'mt-2 w-full text-center text-xs sm:absolute sm:mt-16',
-            state === 'ok' ? 'text-emerald-400' : 'text-rose-400',
+            // Monochrome by brand rule — meaning is carried by the copy, not
+            // hue. Error gets full-strength fg so it stands out; success is calmer.
+            state === 'ok' ? 'text-fg-muted' : 'text-fg',
           )}
         >
           {message}

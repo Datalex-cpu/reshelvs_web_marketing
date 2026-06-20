@@ -24,7 +24,7 @@
   --elevated:    #ffffff;
   --fg:          #0a0a0a;
   --fg-muted:    #6b6b6b;
-  --fg-subtle:   #9b9b9b;
+  --fg-subtle:   #737373; /* 4.54:1 on #fafafa — WCAG AA (was #9b9b9b, 2.66:1) */
   --fg-faint:    #c4c4c4;
   --border:      rgba(0, 0, 0, 0.08);
   --border-strong: rgba(0, 0, 0, 0.16);

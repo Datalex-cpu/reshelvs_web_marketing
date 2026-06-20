@@ -67,8 +67,9 @@ export function ContactForm() {
         {message && (
           <p
             className={cn(
+              // Monochrome by brand rule — copy carries the meaning, not hue.
               'text-xs',
-              state === 'ok' ? 'text-emerald-400' : 'text-rose-400',
+              state === 'ok' ? 'text-fg-muted' : 'text-fg',
             )}
           >
             {message}

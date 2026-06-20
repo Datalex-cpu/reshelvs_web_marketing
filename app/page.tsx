@@ -19,11 +19,11 @@ export default function HomePage() {
         <AnimatedGradient />
         <div className="mx-auto max-w-5xl px-6 pb-14 pt-16 text-center md:pt-24">
           <Eyebrow className="mx-auto">
-            <span className="inline-block h-1.5 w-1.5 rounded-full bg-emerald-400 shadow-[0_0_8px_rgba(52,211,153,0.6)]" />
+            <span className="inline-block h-1.5 w-1.5 rounded-full bg-fg/70" />
             Now in private beta
           </Eyebrow>
           <h1 className="mx-auto mt-6 max-w-5xl font-display text-5xl font-medium leading-[1.02] tracking-display sm:text-6xl md:text-7xl lg:text-8xl">
-            The operating system for{' '}
+            The <span className="whitespace-nowrap">operating system</span> for{' '}
             <span className="text-gradient">FMCG field teams</span>.
           </h1>
           <p className="mx-auto mt-5 max-w-xl text-base text-fg-muted md:text-lg">
