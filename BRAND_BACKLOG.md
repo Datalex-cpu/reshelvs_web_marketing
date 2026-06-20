@@ -60,7 +60,11 @@ Worked top-to-bottom by the self-paced `/loop`. Check items off as shipped.
 - [x] Complete FAQ accordion ARIA (`aria-controls`, `id`, `role="region"`, `aria-labelledby`)
 - [x] Fix careers heading-level skip (h1 → h3) — added an "Open roles" h2
 - [x] Associate ContactForm labels with inputs (`htmlFor`/`id`); ring focus cue
-- [ ] Make product-mock internals theme-aware (light-mode rendering)
+- [x] Make product-mock internals theme-aware — swapped hard-coded
+  white/black literals (chart bars, active row, window dots, floor-glow, CTA)
+  for `fg`/`bg` tokens so the mock flips with the theme; status emerald/rose
+  kept (allowed in mocks). Chart bars + active row were white-on-white on the
+  light-default theme — a real rendering bug, now fixed.
 - [x] Remove `shadow-lg` on theme-toggle dropdown (now border + inset glint)
 
 ### Found mid-loop (not in original audit) — credibility
@@ -80,4 +84,6 @@ Worked top-to-bottom by the self-paced `/loop`. Check items off as shipped.
   beta/announced-framed.)
 - [x] **Brands `[slug]` stats** — "40 min saved", "-100% disputes" were
   asserted as facts; added an "illustrative targets · private beta" caption.
-- [ ] Align small-heading tracking with the scale rule (polish)
+- [x] Align small-heading tracking with the scale rule — two `text-2xl`
+  marketplace headings `tracking-display` → `tracking-tight`; three legal h1s
+  (which scale to `md:text-5xl`) `tracking-tight` → `tracking-display`.

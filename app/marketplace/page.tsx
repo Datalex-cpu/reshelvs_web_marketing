@@ -94,7 +94,7 @@ export default function MarketplacePage() {
       })}
 
       <div className="mt-24 rounded-2xl border border-hairline bg-bg-surface p-8">
-        <h2 className="font-display text-2xl font-medium tracking-display">
+        <h2 className="font-display text-2xl font-medium tracking-tight">
           Build your own
         </h2>
         <p className="mt-3 max-w-xl text-fg-muted">

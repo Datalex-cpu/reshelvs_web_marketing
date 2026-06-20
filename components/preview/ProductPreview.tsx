@@ -1,10 +1,11 @@
 export function ProductPreview() {
   return (
     <div className="relative">
-      {/* Soft floor-glow so the preview feels lifted off the bg. */}
+      {/* Soft floor-glow so the preview feels lifted off the bg. fg-based so
+          it flips with the theme (faint dark halo on light, white on dark). */}
       <div
         aria-hidden
-        className="pointer-events-none absolute -inset-x-20 -top-10 -bottom-10 bg-[radial-gradient(ellipse_at_center,rgba(255,255,255,0.10),transparent_60%)]"
+        className="pointer-events-none absolute -inset-x-20 -top-10 -bottom-10 bg-[radial-gradient(ellipse_at_center,rgb(var(--fg-rgb)/0.06),transparent_60%)]"
       />
       {/* Hairline highlight along the top, like a screen edge catching light. */}
       <div
@@ -31,11 +32,11 @@ function DashboardMock() {
       {/* window chrome */}
       <div className="flex items-center justify-between border-b border-border bg-bg-deep/70 px-4 py-2.5">
         <div className="flex items-center gap-1.5">
-          <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
-          <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
-          <span className="h-2.5 w-2.5 rounded-full bg-white/15" />
+          <span className="h-2.5 w-2.5 rounded-full bg-fg/15" />
+          <span className="h-2.5 w-2.5 rounded-full bg-fg/15" />
+          <span className="h-2.5 w-2.5 rounded-full bg-fg/15" />
         </div>
-        <div className="rounded-md border border-border bg-white/[0.03] px-3 py-0.5 text-[10px] text-fg-subtle">
+        <div className="rounded-md border border-border bg-fg/[0.03] px-3 py-0.5 text-[10px] text-fg-subtle">
           app.reshelvs.com / routes
         </div>
         <span className="w-12" />
@@ -49,7 +50,7 @@ function DashboardMock() {
             <div
               key={l}
               className={`mb-0.5 rounded-md px-2 py-1.5 ${
-                i === 1 ? 'bg-white/10 text-white' : 'text-fg-muted'
+                i === 1 ? 'bg-fg/10 text-fg' : 'text-fg-muted'
               }`}
             >
               {l}
@@ -65,7 +66,7 @@ function DashboardMock() {
               </div>
               <div className="font-display text-lg font-medium">North Riyadh route</div>
             </div>
-            <div className="rounded-md border border-border bg-white/[0.03] px-2 py-0.5 text-[10px] text-emerald-400">
+            <div className="rounded-md border border-border bg-fg/[0.03] px-2 py-0.5 text-[10px] text-emerald-400">
               ON TRACK
             </div>
           </div>
@@ -75,7 +76,7 @@ function DashboardMock() {
               <div
                 key={i}
                 style={{ height: `${h}%` }}
-                className="flex-1 rounded-t-sm bg-gradient-to-t from-white/10 to-white/85"
+                className="flex-1 rounded-t-sm bg-gradient-to-t from-fg/10 to-fg/85"
               />
             ))}
           </div>
@@ -98,7 +99,7 @@ function DashboardMock() {
                     state === 'done'
                       ? 'text-emerald-400'
                       : state === 'live'
-                        ? 'text-white'
+                        ? 'text-fg'
                         : 'text-fg-muted'
                   }
                 >
@@ -117,13 +118,13 @@ function PhoneMock() {
   return (
     <div className="relative mx-auto w-[240px] md:w-[260px]">
       <div className="relative overflow-hidden rounded-[36px] border border-border bg-bg-deep p-2 shadow-[0_30px_80px_-30px_rgba(0,0,0,0.8)]">
-        {/* notch */}
+        {/* notch — a phone notch reads as dark hardware on either theme */}
         <div className="absolute left-1/2 top-2 z-10 h-5 w-24 -translate-x-1/2 rounded-full bg-black/80" />
         <div className="overflow-hidden rounded-[28px] bg-bg-surface px-4 pb-5 pt-10">
           <div className="text-[10px] uppercase tracking-[0.18em] text-fg-subtle">
             Visit · Hypermarket, Olaya
           </div>
-          <div className="mt-2 font-display text-base font-medium text-white">
+          <div className="mt-2 font-display text-base font-medium text-fg">
             On-shelf check
           </div>
           {/* shelf grid */}
@@ -159,7 +160,7 @@ function PhoneMock() {
                     s === 'done'
                       ? 'text-emerald-400'
                       : s === 'live'
-                        ? 'text-white'
+                        ? 'text-fg'
                         : 'text-fg-muted'
                   }
                 >
@@ -171,7 +172,7 @@ function PhoneMock() {
           {/* big CTA */}
           <button
             disabled
-            className="mt-4 w-full rounded-full bg-white py-2 text-[11px] font-medium text-black opacity-95"
+            className="mt-4 w-full rounded-full bg-fg py-2 text-[11px] font-medium text-bg opacity-95"
           >
             Continue visit
           </button>

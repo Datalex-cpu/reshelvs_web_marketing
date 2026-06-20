@@ -12,7 +12,7 @@ export default function TermsPage() {
   return (
     <>
       <Eyebrow>Legal</Eyebrow>
-      <h1 className="mt-5 font-display text-4xl font-medium tracking-tight text-fg md:text-5xl">
+      <h1 className="mt-5 font-display text-4xl font-medium tracking-display text-fg md:text-5xl">
         Terms of service
       </h1>
       <p className="mt-3 text-xs uppercase tracking-[0.15em] text-fg-subtle">
