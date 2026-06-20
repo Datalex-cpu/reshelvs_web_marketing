@@ -55,12 +55,9 @@ export default function TermsPage() {
 
       <Section title="4 · Service availability">
         <p>
-          Production-paid plans target 99.9% monthly uptime. Status and
-          incident history live at{' '}
-          <a className="text-fg" href="https://status.reshelvs.com">
-            status.reshelvs.com
-          </a>
-          .
+          Production-paid plans target 99.9% monthly uptime. A public status
+          page with incident history ships as we exit private beta; until then,
+          contact us for incident updates and uptime reporting.
         </p>
       </Section>
 

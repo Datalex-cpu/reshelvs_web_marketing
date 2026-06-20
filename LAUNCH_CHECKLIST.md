@@ -53,6 +53,9 @@ handled in code.
 
 ## Nice-to-have (not launch blockers)
 
-- [ ] `status.reshelvs.com` so the footer link doesn't 404.
-- [ ] Real `/docs/quickstart` page.
+- [done] Footer no longer 404s — the dead `status.reshelvs.com` link was
+      removed (footer + terms reworded). Re-add a `Status` link once you set
+      up the actual status page.
+- [done] Real `/docs/quickstart` page shipped — honest, private-beta-framed
+      signup→first-visit walkthrough, linked from the `/docs` hub + sitemap.
 - [ ] `/ar` localized route (or de-emphasize Arabic-first until shipped).
