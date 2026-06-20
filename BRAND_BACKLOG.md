@@ -49,10 +49,10 @@ Worked top-to-bottom by the self-paced `/loop`. Check items off as shipped.
 - [x] Lower 2 chrome wordmarks `font-semibold` → `font-medium` (Navbar, Footer)
 - [ ] Route 3 dynamic detail pages' metadata through `pageMetadata()`
 - [x] Fix operator-precedence bug in OG image `siteUrl` (yields `https://undefined`) — done alongside #5
-- [ ] Add `focus-visible` rings to bare nav/FAQ/footer/announcement links
-- [ ] Complete FAQ accordion ARIA (`aria-controls`, `id`, `role="region"`)
-- [ ] Fix careers heading-level skip (h1 → h3)
-- [ ] Associate ContactForm labels with inputs; stronger focus cue
+- [x] Add `focus-visible` rings to bare nav/FAQ/footer/announcement links — added a shared `.focus-ring` utility in globals.css (keyboard-only, 2px fg ring) and applied it across Navbar, Footer, AnnouncementBar, FAQ
+- [x] Complete FAQ accordion ARIA (`aria-controls`, `id`, `role="region"`, `aria-labelledby`)
+- [x] Fix careers heading-level skip (h1 → h3) — added an "Open roles" h2
+- [x] Associate ContactForm labels with inputs (`htmlFor`/`id`); ring focus cue
 - [ ] Make product-mock internals theme-aware (light-mode rendering)
 - [x] Remove `shadow-lg` on theme-toggle dropdown (now border + inset glint)
 

@@ -18,13 +18,17 @@ export function FAQ({ items }: FAQProps) {
     <div className="divide-y divide-border rounded-2xl border border-border bg-bg-surface">
       {items.map((item, i) => {
         const expanded = open === i;
+        const triggerId = `faq-trigger-${i}`;
+        const panelId = `faq-panel-${i}`;
         return (
           <div key={item.q}>
             <button
               type="button"
+              id={triggerId}
               onClick={() => setOpen(expanded ? null : i)}
               aria-expanded={expanded}
-              className="flex w-full items-center justify-between gap-6 px-6 py-5 text-left transition-colors hover:bg-fg/[0.02]"
+              aria-controls={panelId}
+              className="focus-ring flex w-full items-center justify-between gap-6 px-6 py-5 text-left transition-colors hover:bg-fg/[0.02]"
             >
               <span className="font-display text-base font-medium tracking-tight text-fg md:text-lg">
                 {item.q}
@@ -57,6 +61,9 @@ export function FAQ({ items }: FAQProps) {
               </span>
             </button>
             <div
+              id={panelId}
+              role="region"
+              aria-labelledby={triggerId}
               className={cn(
                 'grid overflow-hidden px-6 transition-all duration-200',
                 expanded

@@ -56,7 +56,7 @@ export function Footer() {
         <div className="col-span-2">
           <Link
             href="/"
-            className="flex items-center gap-2.5 text-sm font-medium text-fg"
+            className="focus-ring flex items-center gap-2.5 text-sm font-medium text-fg"
             aria-label="Reshelvs home"
           >
             <LogoMark className="h-5 w-5" />
@@ -72,7 +72,7 @@ export function Footer() {
                 key={s.label}
                 href={s.href}
                 aria-label={s.label}
-                className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-border bg-fg/[0.03] text-xs text-fg-muted transition-colors hover:border-border-strong hover:text-fg"
+                className="focus-ring inline-flex h-9 w-9 items-center justify-center rounded-full border border-border bg-fg/[0.03] text-xs text-fg-muted transition-colors hover:border-border-strong hover:text-fg"
               >
                 {s.icon}
               </Link>
@@ -89,7 +89,7 @@ export function Footer() {
                 <li key={l.href}>
                   <Link
                     href={l.href}
-                    className="text-fg-muted transition-colors hover:text-fg"
+                    className="focus-ring text-fg-muted transition-colors hover:text-fg"
                   >
                     {l.label}
                   </Link>

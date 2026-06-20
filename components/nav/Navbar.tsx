@@ -65,7 +65,7 @@ export function Navbar() {
         >
           <Link
             href="/"
-            className="flex items-center gap-2.5 text-sm font-medium text-fg"
+            className="focus-ring flex items-center gap-2.5 text-sm font-medium text-fg"
             aria-label="Reshelvs home"
             onClick={() => setOpen(false)}
           >
@@ -80,7 +80,7 @@ export function Navbar() {
               <Link
                 key={item.href}
                 href={item.href}
-                className="text-sm text-fg-muted transition-colors hover:text-fg"
+                className="focus-ring text-sm text-fg-muted transition-colors hover:text-fg"
               >
                 {item.label}
               </Link>
@@ -103,7 +103,7 @@ export function Navbar() {
               aria-expanded={open}
               aria-controls="mobile-nav"
               onClick={() => setOpen((v) => !v)}
-              className="relative inline-flex h-9 w-9 items-center justify-center rounded-full border border-border text-fg transition-colors hover:border-border-strong"
+              className="focus-ring relative inline-flex h-9 w-9 items-center justify-center rounded-full border border-border text-fg transition-colors hover:border-border-strong"
             >
               <BurgerIcon open={open} />
             </button>
@@ -139,7 +139,7 @@ export function Navbar() {
                 key={item.href}
                 href={item.href}
                 onClick={() => setOpen(false)}
-                className="rounded-xl border border-transparent px-3 py-3 font-display text-2xl font-medium tracking-tight text-fg transition-colors hover:border-border hover:bg-bg-surface"
+                className="focus-ring rounded-xl border border-transparent px-3 py-3 font-display text-2xl font-medium tracking-tight text-fg transition-colors hover:border-border hover:bg-bg-surface"
               >
                 {item.label}
               </Link>

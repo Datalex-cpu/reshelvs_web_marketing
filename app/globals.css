@@ -139,6 +139,18 @@ body {
   .border-hairline {
     border: 1px solid var(--hairline);
   }
+
+  /* Shared keyboard-focus ring for bare links/buttons that don't use the
+     Button primitive (which carries its own). Keyboard-only via
+     :focus-visible; a solid 2px fg ring so it reads on any surface
+     (page / surface / deep) without an offset-color mismatch. */
+  .focus-ring {
+    border-radius: 0.375rem;
+  }
+  .focus-ring:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 2px rgb(var(--fg-rgb) / 0.5);
+  }
   .glass {
     background: var(--glass-bg);
     backdrop-filter: saturate(180%) blur(20px);

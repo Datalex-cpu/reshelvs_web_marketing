@@ -50,13 +50,17 @@ export function ContactForm() {
         <SelectField label="Reason" name="reason" options={reasons} />
       </div>
       <div className="mt-4">
-        <label className="mb-2 block text-xs uppercase tracking-[0.15em] text-fg-subtle">
+        <label
+          htmlFor="message"
+          className="mb-2 block text-xs uppercase tracking-[0.15em] text-fg-subtle"
+        >
           Tell us about your field operation
         </label>
         <textarea
+          id="message"
           name="message"
           rows={5}
-          className="w-full rounded-lg border border-border bg-fg/[0.02] px-4 py-3 text-sm text-fg placeholder:text-fg-subtle focus:border-border-strong focus:outline-none"
+          className="w-full rounded-lg border border-border bg-fg/[0.02] px-4 py-3 text-sm text-fg placeholder:text-fg-subtle focus:border-border-strong focus:outline-none focus:ring-2 focus:ring-fg/25"
           placeholder="Number of reps, regions, brands you carry, current stack…"
         />
       </div>
@@ -93,14 +97,18 @@ function Field({
 }) {
   return (
     <div>
-      <label className="mb-2 block text-xs uppercase tracking-[0.15em] text-fg-subtle">
+      <label
+        htmlFor={name}
+        className="mb-2 block text-xs uppercase tracking-[0.15em] text-fg-subtle"
+      >
         {label}
       </label>
       <input
+        id={name}
         name={name}
         type={type}
         required={required}
-        className="w-full rounded-lg border border-border bg-fg/[0.02] px-4 py-3 text-sm text-fg placeholder:text-fg-subtle focus:border-border-strong focus:outline-none"
+        className="w-full rounded-lg border border-border bg-fg/[0.02] px-4 py-3 text-sm text-fg placeholder:text-fg-subtle focus:border-border-strong focus:outline-none focus:ring-2 focus:ring-fg/25"
       />
     </div>
   );
@@ -117,13 +125,17 @@ function SelectField({
 }) {
   return (
     <div>
-      <label className="mb-2 block text-xs uppercase tracking-[0.15em] text-fg-subtle">
+      <label
+        htmlFor={name}
+        className="mb-2 block text-xs uppercase tracking-[0.15em] text-fg-subtle"
+      >
         {label}
       </label>
       <select
+        id={name}
         name={name}
         defaultValue="sales"
-        className="w-full rounded-lg border border-border bg-fg/[0.02] px-4 py-3 text-sm text-fg focus:border-border-strong focus:outline-none"
+        className="w-full rounded-lg border border-border bg-fg/[0.02] px-4 py-3 text-sm text-fg focus:border-border-strong focus:outline-none focus:ring-2 focus:ring-fg/25"
       >
         {options.map((o) => (
           <option key={o.value} value={o.value} className="bg-bg-deep">

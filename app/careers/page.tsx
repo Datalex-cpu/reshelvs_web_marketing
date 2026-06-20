@@ -48,7 +48,10 @@ export default function CareersPage() {
         of FMCG distribution. We work in the open, ship every week, and
         spend a real amount of time in actual stores.
       </p>
-      <div className="mt-16 space-y-3">
+      <h2 className="mt-16 font-display text-2xl font-medium tracking-tight text-fg">
+        Open roles
+      </h2>
+      <div className="mt-6 space-y-3">
         {roles.map((r) => (
           <Card
             key={r.title}
