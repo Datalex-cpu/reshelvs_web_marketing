@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Section, Eyebrow } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
+import { Card } from '@/components/ui/Card';
 import { getCustomer, customers } from '@/content/customers';
 
 interface Params {
@@ -57,17 +58,14 @@ export default function CustomerStory({ params }: Params) {
         </div>
         <div className="mt-4 grid grid-cols-1 gap-6 sm:grid-cols-3">
           {c.targets.map((m) => (
-            <div
-              key={m.label}
-              className="rounded-2xl border border-border bg-bg-surface p-6"
-            >
+            <Card key={m.label} hover={false}>
               <div className="num font-display text-3xl font-medium tracking-display md:text-4xl">
                 <span className="text-gradient">{m.value}</span>
               </div>
               <div className="mt-2 text-xs uppercase tracking-[0.15em] text-fg-subtle">
                 {m.label}
               </div>
-            </div>
+            </Card>
           ))}
         </div>
 
@@ -77,14 +75,14 @@ export default function CustomerStory({ params }: Params) {
           ))}
         </div>
 
-        <div className="mt-16 rounded-2xl border border-border bg-bg-surface p-8 md:p-10">
+        <Card hover={false} className="mt-16 p-8 md:p-10">
           <p className="font-display text-2xl font-medium leading-snug tracking-tight text-fg md:text-3xl">
             {c.thesis}
           </p>
           <p className="mt-6 text-xs uppercase tracking-[0.15em] text-fg-subtle">
             What Reshelvs is built to do · private beta
           </p>
-        </div>
+        </Card>
 
         <div className="mt-12 flex flex-wrap gap-3">
           <Button href="/#waitlist">Run on Reshelvs</Button>
@@ -105,7 +103,7 @@ export default function CustomerStory({ params }: Params) {
                   href={`/customers/${o.slug}`}
                   className="group block"
                 >
-                  <div className="rounded-2xl border border-border bg-bg-surface p-5 transition-colors group-hover:border-border-strong">
+                  <Card className="p-5">
                     <div className="text-xs uppercase tracking-[0.15em] text-fg-subtle">
                       {o.segment} · {o.region}
                     </div>
@@ -115,7 +113,7 @@ export default function CustomerStory({ params }: Params) {
                     <div className="mt-1 text-sm text-fg-muted">
                       {o.tagline}
                     </div>
-                  </div>
+                  </Card>
                 </Link>
               ))}
             </div>

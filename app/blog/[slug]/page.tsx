@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { Section, Eyebrow } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
+import { Card } from '@/components/ui/Card';
 import { getPost, posts } from '@/content/posts';
 
 interface Params {
@@ -68,7 +69,7 @@ export default function BlogPost({ params }: Params) {
           ))}
         </div>
 
-        <div className="mt-16 rounded-2xl border border-border bg-bg-surface p-6 md:p-8">
+        <Card hover={false} className="mt-16 md:p-8">
           <div className="text-xs uppercase tracking-[0.15em] text-fg-subtle">
             Reshelvs
           </div>
@@ -85,7 +86,7 @@ export default function BlogPost({ params }: Params) {
               See the product
             </Button>
           </div>
-        </div>
+        </Card>
       </Section>
 
       {related.length > 0 && (
@@ -99,14 +100,14 @@ export default function BlogPost({ params }: Params) {
                   href={`/blog/${r.slug}`}
                   className="group block"
                 >
-                  <div className="rounded-2xl border border-border bg-bg-surface p-5 transition-colors group-hover:border-border-strong">
+                  <Card className="p-5">
                     <div className="text-xs uppercase tracking-[0.15em] text-fg-subtle">
                       {r.category}
                     </div>
                     <div className="mt-2 font-display text-lg font-medium tracking-tight text-fg">
                       {r.title}
                     </div>
-                  </div>
+                  </Card>
                 </Link>
               ))}
             </div>

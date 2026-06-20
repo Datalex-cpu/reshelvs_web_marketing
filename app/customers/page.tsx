@@ -84,10 +84,7 @@ export default function CustomersPage() {
         </div>
         <div className="grid gap-4 md:grid-cols-3">
           {segments.map((s) => (
-            <div
-              key={s.tag}
-              className="rounded-2xl border border-border bg-bg-surface p-6"
-            >
+            <Card key={s.tag} hover={false}>
               <div className="text-xs uppercase tracking-[0.15em] text-fg-subtle">
                 {s.tag}
               </div>
@@ -95,7 +92,7 @@ export default function CustomersPage() {
                 {s.title}
               </h3>
               <p className="mt-2 text-sm text-fg-muted">{s.body}</p>
-            </div>
+            </Card>
           ))}
         </div>
       </Section>

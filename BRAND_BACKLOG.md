@@ -42,7 +42,12 @@ Worked top-to-bottom by the self-paced `/loop`. Check items off as shipped.
 
 - [x] Relabel headline stat band (10k+ stores, <1s) as design targets — `components/stats/Stats.tsx` — added a "platform capacity and design targets" caption framing all four numbers
 - [x] "Representative interface — not a live screenshot" caption on ProductPreview
-- [ ] Replace ~9 hand-rolled Card-surface divs with `<Card>` (9 pages)
+- [x] Replace hand-rolled Card-surface divs with `<Card>` (10 surfaces, 8
+  pages) — added an opt-out `hover` prop to Card so static panels
+  (`hover={false}`) share the surface style without a false click affordance,
+  while interactive "more" lists use the default hover (removing the manually
+  re-added `group-hover`). Marketplace `border-hairline` CTA panels left as-is
+  (different border; conversion adds little).
 - [x] Use `<Section>` in `app/legal/layout.tsx`
 - [x] Marketplace status pill → theme-aware (now uses border/fg tokens — the
   `text-white` pill was invisible on light theme)

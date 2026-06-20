@@ -1,4 +1,5 @@
 import { Section, Eyebrow } from '@/components/ui/Section';
+import { Card } from '@/components/ui/Card';
 import { ContactForm } from '@/components/contact/ContactForm';
 import { pageMetadata } from '@/lib/seo';
 
@@ -44,10 +45,7 @@ export default function ContactPage() {
         <ContactForm />
         <div className="space-y-6">
           {channels.map((c) => (
-            <div
-              key={c.tag}
-              className="rounded-2xl border border-border bg-bg-surface p-6"
-            >
+            <Card key={c.tag} hover={false}>
               <div className="text-xs uppercase tracking-[0.15em] text-fg-subtle">
                 {c.tag}
               </div>
@@ -61,7 +59,7 @@ export default function ContactPage() {
               >
                 {c.email}
               </a>
-            </div>
+            </Card>
           ))}
         </div>
       </div>

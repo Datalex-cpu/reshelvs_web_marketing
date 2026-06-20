@@ -1,5 +1,6 @@
 import { Section, Eyebrow } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
+import { Card } from '@/components/ui/Card';
 
 interface Params {
   params: { slug: string };
@@ -66,14 +67,14 @@ export default function SegmentPage({ params }: Params) {
 
 function Stat({ label, value }: { label: string; value: string }) {
   return (
-    <div className="rounded-2xl border border-border bg-bg-surface p-6">
+    <Card hover={false}>
       <div className="num font-display text-4xl font-medium tracking-display">
         <span className="text-gradient">{value}</span>
       </div>
       <div className="mt-2 text-xs uppercase tracking-[0.15em] text-fg-subtle">
         {label}
       </div>
-    </div>
+    </Card>
   );
 }
 

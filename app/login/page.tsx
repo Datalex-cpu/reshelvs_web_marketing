@@ -1,5 +1,6 @@
 import { Section, Eyebrow } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
+import { Card } from '@/components/ui/Card';
 import { pageMetadata } from '@/lib/seo';
 
 export const metadata = pageMetadata(
@@ -30,7 +31,7 @@ export default function LoginPage() {
           Forgot which tenant?
         </Button>
       </div>
-      <div className="mt-16 rounded-2xl border border-border bg-bg-surface p-6 text-sm text-fg-muted">
+      <Card hover={false} className="mt-16 text-sm text-fg-muted">
         <div className="text-xs uppercase tracking-[0.15em] text-fg-subtle">
           Not on Reshelvs yet?
         </div>
@@ -42,7 +43,7 @@ export default function LoginPage() {
             Join the waitlist
           </Button>
         </div>
-      </div>
+      </Card>
     </Section>
   );
 }

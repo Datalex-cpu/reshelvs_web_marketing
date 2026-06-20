@@ -1,5 +1,6 @@
 import { Section, Eyebrow } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
+import { Card } from '@/components/ui/Card';
 import { AnimatedGradient } from '@/components/hero/AnimatedGradient';
 import { WaitlistForm } from '@/components/hero/WaitlistForm';
 import { BrandMarquee } from '@/components/marquee/BrandMarquee';
@@ -122,10 +123,7 @@ export default function HomePage() {
         </div>
         <div className="grid gap-4 md:grid-cols-3">
           {pillars.map((p) => (
-            <div
-              key={p.title}
-              className="rounded-2xl border border-border bg-bg-surface p-6"
-            >
+            <Card key={p.title} hover={false}>
               <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-fg/5 font-mono text-sm">
                 {p.glyph}
               </div>
@@ -133,7 +131,7 @@ export default function HomePage() {
                 {p.title}
               </h3>
               <p className="mt-2 text-sm text-fg-muted">{p.body}</p>
-            </div>
+            </Card>
           ))}
         </div>
       </Section>
