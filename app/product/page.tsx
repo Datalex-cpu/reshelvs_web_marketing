@@ -1,5 +1,6 @@
 import { Section, Eyebrow } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
+import { FadeIn } from '@/components/ui/FadeIn';
 import { FeatureBento } from '@/components/bento/FeatureBento';
 import { CodeTabs } from '@/components/code/CodeTabs';
 import { Stats } from '@/components/stats/Stats';
@@ -34,43 +35,49 @@ export default function ProductPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
       />
       <Section>
-        <Eyebrow>Product</Eyebrow>
-        <h1 className="mt-5 max-w-3xl font-display text-5xl font-medium tracking-display md:text-6xl">
-          One platform.{' '}
-          <span className="text-fg-muted">Every field surface.</span>
-        </h1>
-        <p className="mt-6 max-w-xl text-fg-muted">
-          Reshelvs replaces the patchwork of attendance trackers, route apps,
-          audit forms, and BI exports with a single platform purpose-built
-          for FMCG field execution.
-        </p>
-        <div className="mt-10 flex flex-wrap gap-3">
-          <Button href="/#waitlist">Join the waitlist</Button>
-          <Button variant="secondary" href="/contact">
-            Book a demo
-          </Button>
-        </div>
-        <div className="mt-16">
+        <FadeIn>
+          <Eyebrow>Product</Eyebrow>
+          <h1 className="mt-5 max-w-3xl font-display text-5xl font-medium tracking-display md:text-6xl">
+            One platform.{' '}
+            <span className="text-fg-muted">Every field surface.</span>
+          </h1>
+          <p className="mt-6 max-w-xl text-fg-muted">
+            Reshelvs replaces the patchwork of attendance trackers, route apps,
+            audit forms, and BI exports with a single platform purpose-built
+            for FMCG field execution.
+          </p>
+          <div className="mt-10 flex flex-wrap gap-3">
+            <Button href="/#waitlist">Join the waitlist</Button>
+            <Button variant="secondary" href="/contact">
+              Book a demo
+            </Button>
+          </div>
+        </FadeIn>
+        <FadeIn className="mt-16" delay={0.05}>
           <ProductPreview />
-        </div>
+        </FadeIn>
       </Section>
 
       <Section className="!pt-0">
-        <Stats />
+        <FadeIn>
+          <Stats />
+        </FadeIn>
       </Section>
 
       <Section className="!pt-0" id="features">
-        <div className="mb-14 max-w-2xl">
+        <FadeIn className="mb-14 max-w-2xl">
           <Eyebrow>Surfaces</Eyebrow>
           <h2 className="mt-5 font-display text-4xl font-medium tracking-display md:text-5xl">
             Six surfaces. One source of truth.
           </h2>
-        </div>
-        <FeatureBento />
+        </FadeIn>
+        <FadeIn delay={0.05}>
+          <FeatureBento />
+        </FadeIn>
       </Section>
 
       <Section id="api">
-        <div className="grid items-center gap-10 md:grid-cols-2">
+        <FadeIn className="grid items-center gap-10 md:grid-cols-2">
           <div>
             <Eyebrow>API & integrations</Eyebrow>
             <h2 className="mt-5 font-display text-4xl font-medium tracking-display md:text-5xl">
@@ -83,7 +90,7 @@ export default function ProductPage() {
             </p>
           </div>
           <CodeTabs />
-        </div>
+        </FadeIn>
       </Section>
     </>
   );

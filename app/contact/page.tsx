@@ -1,5 +1,6 @@
 import { Section, Eyebrow } from '@/components/ui/Section';
 import { Card } from '@/components/ui/Card';
+import { FadeIn } from '@/components/ui/FadeIn';
 import { ContactForm } from '@/components/contact/ContactForm';
 import { pageMetadata } from '@/lib/seo';
 
@@ -32,16 +33,21 @@ const channels = [
 export default function ContactPage() {
   return (
     <Section>
-      <Eyebrow>Contact</Eyebrow>
-      <h1 className="mt-5 max-w-3xl font-display text-5xl font-medium tracking-display md:text-6xl">
-        Talk to us.
-      </h1>
-      <p className="mt-6 max-w-xl text-fg-muted">
-        Tell us about your field operation. We'll get back within one business
-        day — sooner if you're already running a beat.
-      </p>
+      <FadeIn>
+        <Eyebrow>Contact</Eyebrow>
+        <h1 className="mt-5 max-w-3xl font-display text-5xl font-medium tracking-display md:text-6xl">
+          Talk to us.
+        </h1>
+        <p className="mt-6 max-w-xl text-fg-muted">
+          Tell us about your field operation. We'll get back within one business
+          day — sooner if you're already running a beat.
+        </p>
+      </FadeIn>
 
-      <div className="mt-16 grid gap-12 md:grid-cols-[1.2fr_1fr]">
+      <FadeIn
+        className="mt-16 grid gap-12 md:grid-cols-[1.2fr_1fr]"
+        delay={0.05}
+      >
         <ContactForm />
         <div className="space-y-6">
           {channels.map((c) => (
@@ -62,7 +68,7 @@ export default function ContactPage() {
             </Card>
           ))}
         </div>
-      </div>
+      </FadeIn>
     </Section>
   );
 }

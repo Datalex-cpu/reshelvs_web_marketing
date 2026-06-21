@@ -1,6 +1,7 @@
 import { Section, Eyebrow } from '@/components/ui/Section';
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
+import { FadeIn } from '@/components/ui/FadeIn';
 import { FAQ } from '@/components/faq/FAQ';
 import { pageMetadata } from '@/lib/seo';
 
@@ -62,7 +63,7 @@ const tiers = [
 export default function PricingPage() {
   return (
     <Section>
-      <div className="text-center">
+      <FadeIn className="text-center">
         <Eyebrow className="mx-auto">Pricing</Eyebrow>
         <h1 className="mx-auto mt-5 max-w-2xl font-display text-5xl font-medium tracking-display md:text-6xl">
           Simple. <span className="text-fg-muted">Per-rep. Honest.</span>
@@ -71,12 +72,15 @@ export default function PricingPage() {
           Pay only for the reps actively in the field. No setup fees, no
           minimums, no surprises.
         </p>
-      </div>
-      <div className="mt-16 grid grid-cols-1 gap-5 md:grid-cols-3">
+      </FadeIn>
+      <FadeIn
+        className="mt-16 grid grid-cols-1 gap-5 md:grid-cols-3"
+        delay={0.05}
+      >
         {tiers.map((t) => (
           <Card
             key={t.name}
-            className={t.highlight ? 'ring-1 ring-white/20' : ''}
+            className={t.highlight ? 'h-full ring-1 ring-white/20' : 'h-full'}
           >
             <div className="text-xs uppercase tracking-[0.15em] text-fg-subtle">
               {t.name}
@@ -109,28 +113,30 @@ export default function PricingPage() {
             </div>
           </Card>
         ))}
-      </div>
+      </FadeIn>
       <div className="mt-12 text-center text-xs text-fg-subtle">
         Prices in USD. Local billing available for KSA, UAE, and Egypt.
       </div>
 
       <div className="mt-32">
-        <div className="mb-10 max-w-2xl">
+        <FadeIn className="mb-10 max-w-2xl">
           <Eyebrow>FAQ</Eyebrow>
           <h2 className="mt-5 font-display text-4xl font-medium tracking-display md:text-5xl">
             Questions before you spin up.
           </h2>
-        </div>
-        <FAQ items={faqs} />
-        <p className="mt-8 text-sm text-fg-muted">
-          Something we didn't cover?{' '}
-          <a
-            href="/contact"
-            className="text-fg underline-offset-4 hover:underline"
-          >
-            Ask sales →
-          </a>
-        </p>
+        </FadeIn>
+        <FadeIn delay={0.05}>
+          <FAQ items={faqs} />
+          <p className="mt-8 text-sm text-fg-muted">
+            Something we didn't cover?{' '}
+            <a
+              href="/contact"
+              className="text-fg underline-offset-4 hover:underline"
+            >
+              Ask sales →
+            </a>
+          </p>
+        </FadeIn>
       </div>
     </Section>
   );

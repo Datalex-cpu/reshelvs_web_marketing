@@ -1,6 +1,7 @@
 import { Section, Eyebrow } from '@/components/ui/Section';
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
+import { FadeIn } from '@/components/ui/FadeIn';
 import { pageMetadata } from '@/lib/seo';
 
 export const metadata = pageMetadata(
@@ -39,37 +40,40 @@ const roles = [
 export default function CareersPage() {
   return (
     <Section>
-      <Eyebrow>Careers</Eyebrow>
-      <h1 className="mt-5 max-w-3xl font-display text-5xl font-medium tracking-display md:text-6xl">
-        Help us build the OS for the field.
-      </h1>
-      <p className="mt-6 max-w-xl text-fg-muted">
-        We're a small team obsessed with craft, latency, and the realities
-        of FMCG distribution. We work in the open, ship every week, and
-        spend a real amount of time in actual stores.
-      </p>
-      <h2 className="mt-16 font-display text-2xl font-medium tracking-tight text-fg">
-        Open roles
-      </h2>
+      <FadeIn>
+        <Eyebrow>Careers</Eyebrow>
+        <h1 className="mt-5 max-w-3xl font-display text-5xl font-medium tracking-display md:text-6xl">
+          Help us build the OS for the field.
+        </h1>
+        <p className="mt-6 max-w-xl text-fg-muted">
+          We're a small team obsessed with craft, latency, and the realities
+          of FMCG distribution. We work in the open, ship every week, and
+          spend a real amount of time in actual stores.
+        </p>
+      </FadeIn>
+      <FadeIn className="mt-16">
+        <h2 className="font-display text-2xl font-medium tracking-tight text-fg">
+          Open roles
+        </h2>
+      </FadeIn>
       <div className="mt-6 space-y-3">
-        {roles.map((r) => (
-          <Card
-            key={r.title}
-            className="flex flex-row items-center justify-between gap-6"
-          >
-            <div>
-              <div className="text-xs uppercase tracking-[0.15em] text-fg-subtle">
-                {r.team}
+        {roles.map((r, i) => (
+          <FadeIn key={r.title} delay={i * 0.04}>
+            <Card className="flex flex-row items-center justify-between gap-6">
+              <div>
+                <div className="text-xs uppercase tracking-[0.15em] text-fg-subtle">
+                  {r.team}
+                </div>
+                <h3 className="mt-2 font-display text-xl font-medium tracking-tight">
+                  {r.title}
+                </h3>
+                <div className="mt-1 text-sm text-fg-muted">{r.location}</div>
               </div>
-              <h3 className="mt-2 font-display text-xl font-medium tracking-tight">
-                {r.title}
-              </h3>
-              <div className="mt-1 text-sm text-fg-muted">{r.location}</div>
-            </div>
-            <Button variant="secondary" href="/contact">
-              Apply
-            </Button>
-          </Card>
+              <Button variant="secondary" href="/contact">
+                Apply
+              </Button>
+            </Card>
+          </FadeIn>
         ))}
       </div>
     </Section>

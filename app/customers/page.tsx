@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Section, Eyebrow } from '@/components/ui/Section';
 import { Card } from '@/components/ui/Card';
+import { FadeIn } from '@/components/ui/FadeIn';
 import { pageMetadata } from '@/lib/seo';
 import { customers } from '@/content/customers';
 
@@ -34,19 +35,21 @@ export default function CustomersPage() {
   return (
     <>
       <Section>
-        <Eyebrow>Customers</Eyebrow>
-        <h1 className="mt-5 max-w-3xl font-display text-5xl font-medium tracking-display md:text-6xl">
-          Built for the teams that run the field.
-        </h1>
-        <p className="mt-6 max-w-xl text-fg-muted">
-          From single-brand startups to multi-company distributors —
-          Reshelvs is built for the people who actually walk the stores.
-        </p>
-        <p className="mt-6 inline-flex items-center gap-2 rounded-full border border-border bg-bg-surface px-3 py-1 text-xs text-fg-subtle">
-          Illustrative scenarios · Reshelvs is in private beta — no named
-          customers yet.
-        </p>
-        <div className="mt-16 grid gap-4 md:grid-cols-3">
+        <FadeIn>
+          <Eyebrow>Customers</Eyebrow>
+          <h1 className="mt-5 max-w-3xl font-display text-5xl font-medium tracking-display md:text-6xl">
+            Built for the teams that run the field.
+          </h1>
+          <p className="mt-6 max-w-xl text-fg-muted">
+            From single-brand startups to multi-company distributors —
+            Reshelvs is built for the people who actually walk the stores.
+          </p>
+          <p className="mt-6 inline-flex items-center gap-2 rounded-full border border-border bg-bg-surface px-3 py-1 text-xs text-fg-subtle">
+            Illustrative scenarios · Reshelvs is in private beta — no named
+            customers yet.
+          </p>
+        </FadeIn>
+        <FadeIn className="mt-16 grid gap-4 md:grid-cols-3" delay={0.05}>
           {customers.map((c) => (
             <Link
               key={c.slug}
@@ -72,17 +75,17 @@ export default function CustomersPage() {
               </Card>
             </Link>
           ))}
-        </div>
+        </FadeIn>
       </Section>
 
       <Section className="!pt-0">
-        <div className="mb-10 max-w-2xl">
+        <FadeIn className="mb-10 max-w-2xl">
           <Eyebrow>Segments</Eyebrow>
           <h2 className="mt-5 font-display text-4xl font-medium tracking-display md:text-5xl">
             Who Reshelvs is built for.
           </h2>
-        </div>
-        <div className="grid gap-4 md:grid-cols-3">
+        </FadeIn>
+        <FadeIn className="grid gap-4 md:grid-cols-3" delay={0.05}>
           {segments.map((s) => (
             <Card key={s.tag} hover={false}>
               <div className="text-xs uppercase tracking-[0.15em] text-fg-subtle">
@@ -94,7 +97,7 @@ export default function CustomersPage() {
               <p className="mt-2 text-sm text-fg-muted">{s.body}</p>
             </Card>
           ))}
-        </div>
+        </FadeIn>
       </Section>
     </>
   );
