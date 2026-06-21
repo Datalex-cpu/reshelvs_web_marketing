@@ -69,6 +69,12 @@ Worked top-to-bottom by the self-paced `/loop`. Check items off as shipped.
 
 ### Round 2 — found reviewing least-touched pages
 
+- [x] **No error boundaries** — only a 404 existed; a runtime error showed
+  Next's default crash page. Added a branded `app/error.tsx` (route-segment
+  recovery, keeps nav/footer, retry via `reset()`) and a self-contained
+  `app/global-error.tsx` (inline-styled fallback if the root layout itself
+  throws). Skipped `loading.tsx` (static site — would just flash).
+
 - [x] **No skip-to-content link** (WCAG 2.4.1) — the fixed announcement bar +
   nav meant keyboard users tabbed through all of it on every page. Added a
   skip link as the first focusable element (off-screen, slides in on focus)
