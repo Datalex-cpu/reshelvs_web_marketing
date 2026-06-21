@@ -1,6 +1,7 @@
 import { Section, Eyebrow } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
+import { FadeIn } from '@/components/ui/FadeIn';
 import { HeroBackdrop } from '@/components/hero/HeroBackdrop';
 import { WaitlistForm } from '@/components/hero/WaitlistForm';
 import { BrandMarquee } from '@/components/marquee/BrandMarquee';
@@ -18,7 +19,7 @@ export default function HomePage() {
       {/* Hero */}
       <section className="relative overflow-hidden">
         <HeroBackdrop />
-        <div className="mx-auto max-w-5xl px-6 pb-14 pt-16 text-center md:pt-24">
+        <FadeIn className="mx-auto max-w-5xl px-6 pb-14 pt-16 text-center md:pt-24">
           <Eyebrow className="mx-auto">
             <span className="inline-block h-1.5 w-1.5 rounded-full bg-fg/70" />
             Now in private beta
@@ -43,29 +44,33 @@ export default function HomePage() {
               </a>
             </div>
           </div>
-        </div>
+        </FadeIn>
 
         {/* Trusted by — above-the-fold social proof */}
-        <div className="pb-10">
+        <FadeIn className="pb-10" delay={0.08}>
           <TrustedBy />
-        </div>
+        </FadeIn>
 
         {/* Product preview — slides up under hero */}
-        <div className="mx-auto max-w-6xl px-6 pb-16">
+        <FadeIn className="mx-auto max-w-6xl px-6 pb-16" delay={0.04}>
           <ProductPreview />
-        </div>
+        </FadeIn>
       </section>
 
-      <BrandMarquee />
+      <FadeIn>
+        <BrandMarquee />
+      </FadeIn>
 
       {/* Stats */}
       <Section className="!py-20 md:!py-24">
-        <Stats />
+        <FadeIn>
+          <Stats />
+        </FadeIn>
       </Section>
 
       {/* Features bento */}
       <Section className="!pt-0">
-        <div className="mb-14 max-w-2xl">
+        <FadeIn className="mb-14 max-w-2xl">
           <Eyebrow>Features</Eyebrow>
           <h2 className="mt-5 font-display text-4xl font-medium tracking-display md:text-5xl">
             Everything your field team needs.{' '}
@@ -76,13 +81,15 @@ export default function HomePage() {
             paper checklists, and weekly spreadsheets that FMCG teams have
             put up with for years.
           </p>
-        </div>
-        <FeatureBento />
+        </FadeIn>
+        <FadeIn delay={0.05}>
+          <FeatureBento />
+        </FadeIn>
       </Section>
 
       {/* Developer / integrations */}
       <Section>
-        <div className="grid items-center gap-12 md:grid-cols-2">
+        <FadeIn className="grid items-center gap-12 md:grid-cols-2">
           <div>
             <Eyebrow>API & integrations</Eyebrow>
             <h2 className="mt-5 font-display text-4xl font-medium tracking-display md:text-5xl">
@@ -104,65 +111,71 @@ export default function HomePage() {
             </div>
           </div>
           <CodeTabs />
-        </div>
+        </FadeIn>
       </Section>
 
       {/* Testimonial */}
       <Section>
-        <Testimonial />
+        <FadeIn>
+          <Testimonial />
+        </FadeIn>
       </Section>
 
       {/* Why Reshelvs — three pillars */}
       <Section>
-        <div className="mb-14 max-w-2xl">
+        <FadeIn className="mb-14 max-w-2xl">
           <Eyebrow>Why Reshelvs</Eyebrow>
           <h2 className="mt-5 font-display text-4xl font-medium tracking-display md:text-5xl">
             Built for the GCC.{' '}
             <span className="text-fg-muted">Ready for the world.</span>
           </h2>
-        </div>
+        </FadeIn>
         <div className="grid gap-4 md:grid-cols-3">
-          {pillars.map((p) => (
-            <Card key={p.title} hover={false}>
-              <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-fg/5 font-mono text-sm">
-                {p.glyph}
-              </div>
-              <h3 className="font-display text-lg font-medium tracking-tight">
-                {p.title}
-              </h3>
-              <p className="mt-2 text-sm text-fg-muted">{p.body}</p>
-            </Card>
+          {pillars.map((p, i) => (
+            <FadeIn key={p.title} delay={i * 0.06}>
+              <Card hover={false} className="h-full">
+                <div className="mb-4 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-fg/5 font-mono text-sm">
+                  {p.glyph}
+                </div>
+                <h3 className="font-display text-lg font-medium tracking-tight">
+                  {p.title}
+                </h3>
+                <p className="mt-2 text-sm text-fg-muted">{p.body}</p>
+              </Card>
+            </FadeIn>
           ))}
         </div>
       </Section>
 
       {/* Final CTA */}
       <Section>
-        <div className="relative overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-bg-surface to-bg-deep p-10 md:p-16">
-          <div className="absolute -right-20 -top-20 h-72 w-72 rounded-full bg-fg/[0.07] blur-3xl" />
-          <div className="absolute -bottom-24 -left-16 h-64 w-64 rounded-full bg-fg/[0.04] blur-3xl" />
-          <div className="relative grid items-center gap-8 md:grid-cols-[1fr_auto]">
-            <div className="max-w-xl">
-              <Eyebrow>Get started</Eyebrow>
-              <h2 className="mt-5 font-display text-4xl font-medium tracking-display md:text-5xl">
-                Spin up your tenant in 90 seconds.
-              </h2>
-              <p className="mt-5 text-fg-muted">
-                Join the FMCG teams going live on Reshelvs. Free to try, no
-                credit card. Bring your team and your stores — we'll handle
-                the rest.
-              </p>
-            </div>
-            <div className="flex flex-col gap-3 sm:flex-row md:flex-col">
-              <Button href="#waitlist" size="lg">
-                Join the waitlist
-              </Button>
-              <Button variant="secondary" href="/contact" size="lg">
-                Talk to sales
-              </Button>
+        <FadeIn>
+          <div className="relative overflow-hidden rounded-3xl border border-border bg-gradient-to-br from-bg-surface to-bg-deep p-10 md:p-16">
+            <div className="absolute -right-20 -top-20 h-72 w-72 rounded-full bg-fg/[0.07] blur-3xl" />
+            <div className="absolute -bottom-24 -left-16 h-64 w-64 rounded-full bg-fg/[0.04] blur-3xl" />
+            <div className="relative grid items-center gap-8 md:grid-cols-[1fr_auto]">
+              <div className="max-w-xl">
+                <Eyebrow>Get started</Eyebrow>
+                <h2 className="mt-5 font-display text-4xl font-medium tracking-display md:text-5xl">
+                  Spin up your tenant in 90 seconds.
+                </h2>
+                <p className="mt-5 text-fg-muted">
+                  Join the FMCG teams going live on Reshelvs. Free to try, no
+                  credit card. Bring your team and your stores — we'll handle
+                  the rest.
+                </p>
+              </div>
+              <div className="flex flex-col gap-3 sm:flex-row md:flex-col">
+                <Button href="#waitlist" size="lg">
+                  Join the waitlist
+                </Button>
+                <Button variant="secondary" href="/contact" size="lg">
+                  Talk to sales
+                </Button>
+              </div>
             </div>
           </div>
-        </div>
+        </FadeIn>
       </Section>
     </>
   );

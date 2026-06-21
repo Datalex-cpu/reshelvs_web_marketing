@@ -103,6 +103,10 @@ export default function RootLayout({
     <html lang="en" className={inter.variable} suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: noFlashScript }} />
+        {/* If JS never runs, scroll-reveal content must still be visible. */}
+        <noscript>
+          <style>{`.fade-in{opacity:1 !important;transform:none !important;}`}</style>
+        </noscript>
       </head>
       <body className="min-h-screen bg-bg text-fg font-sans antialiased">
         <script
