@@ -69,6 +69,12 @@ Worked top-to-bottom by the self-paced `/loop`. Check items off as shipped.
 
 ### Round 2 — found reviewing least-touched pages
 
+- [x] **Home bundle bloated by framer-motion** — the hero `AnimatedGradient`
+  was the only framer-motion user and lives only on `/`, pushing the home
+  first-load JS to 140 kB (vs ~94 kB elsewhere). Lazy-loaded it via a thin
+  client wrapper (`HeroBackdrop`, `next/dynamic` `ssr:false`) — the aria-hidden
+  backdrop now loads in a deferred chunk. **Home first-load: 140 kB → 104 kB.**
+
 - [x] **No error boundaries** — only a 404 existed; a runtime error showed
   Next's default crash page. Added a branded `app/error.tsx` (route-segment
   recovery, keeps nav/footer, retry via `reset()`) and a self-contained

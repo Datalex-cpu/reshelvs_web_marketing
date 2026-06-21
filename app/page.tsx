@@ -1,7 +1,7 @@
 import { Section, Eyebrow } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
 import { Card } from '@/components/ui/Card';
-import { AnimatedGradient } from '@/components/hero/AnimatedGradient';
+import { HeroBackdrop } from '@/components/hero/HeroBackdrop';
 import { WaitlistForm } from '@/components/hero/WaitlistForm';
 import { BrandMarquee } from '@/components/marquee/BrandMarquee';
 import { TrustedBy } from '@/components/marquee/TrustedBy';
@@ -17,7 +17,7 @@ export default function HomePage() {
     <>
       {/* Hero */}
       <section className="relative overflow-hidden">
-        <AnimatedGradient />
+        <HeroBackdrop />
         <div className="mx-auto max-w-5xl px-6 pb-14 pt-16 text-center md:pt-24">
           <Eyebrow className="mx-auto">
             <span className="inline-block h-1.5 w-1.5 rounded-full bg-fg/70" />
