@@ -69,6 +69,12 @@ Worked top-to-bottom by the self-paced `/loop`. Check items off as shipped.
 
 ### Round 2 — found reviewing least-touched pages
 
+- [x] **No `prefers-reduced-motion` support** (WCAG 2.3.3) — the site had an
+  infinite marquee, 3 framer-motion drift blobs, `glow-shift`, and
+  `animate-ping` with no motion-opt-out. Added a global reduced-motion CSS
+  guard (snaps CSS animations + transitions) and `useReducedMotion()` in
+  AnimatedGradient (blobs render static). Non-reduced behaviour unchanged.
+
 - [x] **Dead `#waitlist` CTAs** — the waitlist form (`id="waitlist"`) lives only
   on the home page, but `/product`, `/pricing`, `/changelog`, `/brands/[slug]`,
   and the announcement bar (on every page) linked to bare `#waitlist` → scrolled

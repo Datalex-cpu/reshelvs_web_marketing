@@ -219,3 +219,18 @@ body {
     background-position: 100% 50%;
   }
 }
+
+/* Reduced-motion: snap looping CSS animations + transitions for users who
+   opt out of motion (WCAG 2.3.3). Covers the brand marquee, glow-shift,
+   animate-ping, and all hover transitions. The framer-motion hero gradient
+   is handled in code via useReducedMotion(). */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
