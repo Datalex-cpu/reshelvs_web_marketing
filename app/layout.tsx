@@ -114,11 +114,21 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
         />
         <ThemeProvider>
+          {/* Skip link — first tab stop, lets keyboard users bypass the
+              fixed announcement bar + nav (WCAG 2.4.1). Hidden until focused. */}
+          <a
+            href="#main-content"
+            className="focus-ring fixed left-4 top-4 z-[100] -translate-y-24 rounded-md border border-border bg-bg-surface px-4 py-2 text-sm font-medium text-fg transition-transform focus:translate-y-0"
+          >
+            Skip to content
+          </a>
           <div className="fixed inset-x-0 top-0 z-50">
             <AnnouncementBar />
             <Navbar />
           </div>
-          <main className="pt-[88px]">{children}</main>
+          <main id="main-content" tabIndex={-1} className="pt-[88px]">
+            {children}
+          </main>
           <Footer />
         </ThemeProvider>
         <Analytics />

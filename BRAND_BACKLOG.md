@@ -69,6 +69,11 @@ Worked top-to-bottom by the self-paced `/loop`. Check items off as shipped.
 
 ### Round 2 — found reviewing least-touched pages
 
+- [x] **No skip-to-content link** (WCAG 2.4.1) — the fixed announcement bar +
+  nav meant keyboard users tabbed through all of it on every page. Added a
+  skip link as the first focusable element (off-screen, slides in on focus)
+  targeting a now-focusable `<main id="main-content" tabindex="-1">`.
+
 - [x] **No `prefers-reduced-motion` support** (WCAG 2.3.3) — the site had an
   infinite marquee, 3 framer-motion drift blobs, `glow-shift`, and
   `animate-ping` with no motion-opt-out. Added a global reduced-motion CSS
