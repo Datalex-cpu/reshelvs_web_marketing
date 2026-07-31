@@ -119,10 +119,14 @@ export function Navbar() {
         aria-hidden={!open}
         className={cn(
           'fixed inset-0 z-40 md:hidden',
-          'transition-opacity duration-200',
+          // Toggle `visibility`, not just opacity: an opacity-0 panel keeps its
+          // links in the tab order, so a keyboard user could tab into this
+          // aria-hidden menu (WCAG 4.1.2). Transitioning visibility alongside
+          // opacity keeps the fade-out intact while removing it from focus.
+          'transition-[opacity,visibility] duration-200',
           open
-            ? 'pointer-events-auto opacity-100'
-            : 'pointer-events-none opacity-0',
+            ? 'pointer-events-auto visible opacity-100'
+            : 'pointer-events-none invisible opacity-0',
         )}
       >
         <div
