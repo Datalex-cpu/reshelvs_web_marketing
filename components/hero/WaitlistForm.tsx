@@ -33,7 +33,7 @@ export function WaitlistForm() {
     <form
       id="waitlist"
       onSubmit={submit}
-      className="mx-auto flex w-full max-w-md flex-col items-stretch gap-2 sm:flex-row"
+      className="relative mx-auto flex w-full max-w-md flex-col items-stretch gap-2 sm:flex-row"
     >
       <input
         type="email"
@@ -57,7 +57,9 @@ export function WaitlistForm() {
       {message && (
         <p
           className={cn(
-            'mt-2 w-full text-center text-xs sm:absolute sm:mt-16',
+            // sm:inset-x-0 + `relative` on the form keeps the confirmation
+            // centered under the field instead of drifting to the far right.
+            'mt-2 w-full text-center text-xs sm:absolute sm:inset-x-0 sm:top-full sm:mt-9',
             // Monochrome by brand rule — meaning is carried by the copy, not
             // hue. Error gets full-strength fg so it stands out; success is calmer.
             state === 'ok' ? 'text-fg-muted' : 'text-fg',

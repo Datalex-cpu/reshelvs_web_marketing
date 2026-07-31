@@ -19,7 +19,10 @@ export default function HomePage() {
       {/* Hero */}
       <section className="relative overflow-hidden">
         <HeroBackdrop />
-        <FadeIn className="mx-auto max-w-5xl px-6 pb-14 pt-16 text-center md:pt-24">
+        {/* No FadeIn on the hero: above-the-fold content must paint
+            immediately (LCP) and must not shift under a cursor. Scroll
+            reveals start below the fold. */}
+        <div className="mx-auto max-w-5xl px-6 pb-14 pt-16 text-center md:pt-24">
           <Eyebrow className="mx-auto">
             <span className="inline-block h-1.5 w-1.5 rounded-full bg-fg/70" />
             Now in private beta
@@ -44,7 +47,7 @@ export default function HomePage() {
               </a>
             </div>
           </div>
-        </FadeIn>
+        </div>
 
         {/* Trusted by — above-the-fold social proof */}
         <FadeIn className="pb-10" delay={0.08}>
