@@ -1,4 +1,5 @@
 import { ImageResponse } from 'next/og';
+import { LOGO_PATHS, LOGO_VIEWBOX } from '@/lib/logo-paths';
 
 export const runtime = 'edge';
 export const alt = 'Reshelvs — the operating system for FMCG field teams';
@@ -22,13 +23,8 @@ export const contentType = 'image/png';
  * another opengraph-image.tsx in that route folder.
  */
 export default async function OG() {
-  const siteUrl =
-    process.env.NEXT_PUBLIC_SITE_URL ??
-    (process.env.VERCEL_URL
-      ? `https://${process.env.VERCEL_URL}`
-      : 'https://reshelvs.com');
-  const logoUrl = `${siteUrl}/reshelvs_ios_logo.png`;
-
+  // No siteUrl/logoUrl needed any more — the mark is drawn inline, so this
+  // route has no external dependency and renders identically in every env.
   return new ImageResponse(
     (
       <div
@@ -44,8 +40,12 @@ export default async function OG() {
           fontFamily: 'Inter, system-ui, sans-serif',
         }}
       >
-        {/* Top row: mark + wordmark. The logo PNG is white on transparent;
-            wrap in a dark card so it stays legible on the light bg. */}
+        {/* Top row: mark + wordmark. The mark is drawn inline from the shared
+            path data — previously this <img>'d the PNG off `siteUrl`, which
+            (a) needed a network fetch every render and (b) silently produced a
+            blank black square whenever that URL didn't return a real PNG (the
+            pre-launch domain 200s an HTML catch-all page). Inline = no fetch,
+            no failure mode, and always identical to the in-app LogoMark. */}
         <div style={{ display: 'flex', alignItems: 'center', gap: 24 }}>
           <div
             style={{
@@ -58,13 +58,17 @@ export default async function OG() {
               justifyContent: 'center',
             }}
           >
-            <img
-              src={logoUrl}
-              width={96}
-              height={96}
-              style={{ borderRadius: 22, display: 'flex' }}
-              alt=""
-            />
+            <svg
+              width={62}
+              height={62}
+              viewBox={LOGO_VIEWBOX}
+              fill="#fafafa"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              {LOGO_PATHS.map((d) => (
+                <path key={d.slice(0, 24)} d={d} />
+              ))}
+            </svg>
           </div>
           <div
             style={{
