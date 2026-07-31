@@ -8,6 +8,7 @@ import { customers } from '@/content/customers';
 export const metadata = pageMetadata(
   'Customers',
   'How distributors, brand owners, and retail operators use Reshelvs to run the field — illustrative scenarios from a private-beta product.',
+  '/customers',
 );
 
 const segments = [

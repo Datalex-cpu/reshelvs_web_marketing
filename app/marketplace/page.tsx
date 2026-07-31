@@ -13,6 +13,7 @@ import {
 export const metadata = pageMetadata(
   'Marketplace',
   'Connectors that bridge Reshelvs with the systems your team already runs — SAP, Salesforce, Shopify, NetSuite, Slack and more.',
+  '/marketplace',
 );
 
 const CATEGORY_ORDER: ConnectorCategory[] = [

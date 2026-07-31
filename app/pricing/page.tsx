@@ -8,6 +8,7 @@ import { pageMetadata } from '@/lib/seo';
 export const metadata = pageMetadata(
   'Pricing',
   'Simple, transparent pricing. Start free, scale as your field team grows.',
+  '/pricing',
 );
 
 const tiers = [

@@ -7,6 +7,7 @@ import { pageMetadata } from '@/lib/seo';
 export const metadata = pageMetadata(
   'Careers',
   'Help us build the operating system for FMCG field teams.',
+  '/careers',
 );
 
 const roles = [

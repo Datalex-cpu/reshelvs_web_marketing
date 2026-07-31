@@ -17,7 +17,7 @@ export function generateStaticParams() {
 export function generateMetadata({ params }: Params) {
   const c = getCustomer(params.slug);
   if (!c) return { title: 'Scenario not found' };
-  return pageMetadata(`${c.title} — scenario`, c.tagline);
+  return pageMetadata(`${c.title} — scenario`, c.tagline, `/customers/${params.slug}`);
 }
 
 export default function CustomerStory({ params }: Params) {

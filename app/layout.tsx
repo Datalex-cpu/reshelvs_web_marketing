@@ -32,6 +32,9 @@ export const metadata: Metadata = {
   },
   description:
     'Reshelvs is the modern platform for FMCG field merchandising — routes, store visits, on-shelf availability, and field reports in one place. Built for reps, supervisors, and brand owners.',
+  // Canonical for the home page. Child routes set their own via
+  // pageMetadata(title, description, path) and override this.
+  alternates: { canonical: '/' },
   keywords: [
     'FMCG',
     'field merchandising',

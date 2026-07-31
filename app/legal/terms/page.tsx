@@ -4,6 +4,7 @@ import { pageMetadata } from '@/lib/seo';
 export const metadata = pageMetadata(
   'Terms of service',
   'The terms that govern your use of Reshelvs.',
+  '/legal/terms',
 );
 
 const UPDATED = 'May 26, 2026';

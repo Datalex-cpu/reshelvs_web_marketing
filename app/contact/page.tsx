@@ -7,6 +7,7 @@ import { pageMetadata } from '@/lib/seo';
 export const metadata = pageMetadata(
   'Contact',
   'Talk to the Reshelvs team — sales, partnerships, support, or a quick hello.',
+  '/contact',
 );
 
 const channels = [

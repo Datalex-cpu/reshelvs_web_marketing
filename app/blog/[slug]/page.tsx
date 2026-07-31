@@ -17,7 +17,7 @@ export function generateStaticParams() {
 export function generateMetadata({ params }: Params) {
   const post = getPost(params.slug);
   if (!post) return { title: 'Post not found' };
-  const meta = pageMetadata(post.title, post.excerpt);
+  const meta = pageMetadata(post.title, post.excerpt, `/blog/${params.slug}`);
   return {
     ...meta,
     openGraph: {

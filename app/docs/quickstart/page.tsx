@@ -8,6 +8,7 @@ import { pageMetadata } from '@/lib/seo';
 export const metadata = pageMetadata(
   'Quickstart',
   'From signup to your first store visit on Reshelvs — the five steps that take a field team live.',
+  '/docs/quickstart',
 );
 
 const steps = [

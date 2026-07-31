@@ -6,6 +6,7 @@ import { pageMetadata } from '@/lib/seo';
 export const metadata = pageMetadata(
   'Changelog',
   'What we shipped, when we shipped it.',
+  '/changelog',
 );
 
 const entries = [

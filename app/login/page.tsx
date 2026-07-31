@@ -6,6 +6,7 @@ import { pageMetadata } from '@/lib/seo';
 export const metadata = pageMetadata(
   'Sign in',
   'Sign in to your Reshelvs tenant.',
+  '/login',
 );
 
 export default function LoginPage() {

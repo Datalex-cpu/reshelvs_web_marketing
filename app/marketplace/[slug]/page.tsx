@@ -23,7 +23,11 @@ export async function generateMetadata({
   const { slug } = await params;
   const c = connectorBySlug(slug);
   if (!c) return pageMetadata('Connector not found', '');
-  return pageMetadata(`${c.name} — Reshelvs Marketplace`, c.blurb);
+  return pageMetadata(
+    `${c.name} — Reshelvs Marketplace`,
+    c.blurb,
+    `/marketplace/${slug}`,
+  );
 }
 
 export default async function ConnectorDetailPage({

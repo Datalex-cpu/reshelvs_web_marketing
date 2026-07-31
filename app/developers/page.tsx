@@ -7,6 +7,7 @@ import { pageMetadata } from '@/lib/seo';
 export const metadata = pageMetadata(
   'Developers',
   'The Reshelvs API — a typed REST API, OAuth2 auth, SDK, and connector marketplace, in private-beta preview for design partners.',
+  '/developers',
 );
 
 // The API surface is real in shape but not yet publicly callable — Reshelvs

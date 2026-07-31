@@ -4,6 +4,7 @@ import { pageMetadata } from '@/lib/seo';
 export const metadata = pageMetadata(
   'Privacy policy',
   'How Reshelvs collects, uses, and protects your data.',
+  '/legal/privacy',
 );
 
 const UPDATED = 'May 26, 2026';

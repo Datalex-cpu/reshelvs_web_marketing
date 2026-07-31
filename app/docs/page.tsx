@@ -8,6 +8,7 @@ import { pageMetadata } from '@/lib/seo';
 export const metadata = pageMetadata(
   'Docs',
   'Reshelvs developer documentation — API, webhooks, SDKs, and field guides.',
+  '/docs',
 );
 
 // Only Quickstart is a live page today; the rest ship with the public-beta

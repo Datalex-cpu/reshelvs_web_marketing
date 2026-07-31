@@ -19,6 +19,7 @@ export function generateMetadata({ params }: Params) {
   return pageMetadata(
     `${name} on Reshelvs`,
     `How ${name.toLowerCase()} run field execution on Reshelvs.`,
+    `/brands/${params.slug}`,
   );
 }
 

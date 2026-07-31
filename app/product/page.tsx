@@ -10,6 +10,7 @@ import { pageMetadata } from '@/lib/seo';
 export const metadata = pageMetadata(
   'Product',
   'Routes, store visits, on-shelf availability, attendance, catalog, and reports — the full field execution stack.',
+  '/product',
 );
 
 const productJsonLd = {

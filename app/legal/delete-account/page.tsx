@@ -4,6 +4,7 @@ import { pageMetadata } from '@/lib/seo';
 export const metadata = pageMetadata(
   'Delete your account & data',
   'How to delete your Reshelvs account and personal data, on iOS, Android, and the web.',
+  '/legal/delete-account',
 );
 
 const UPDATED = 'June 1, 2026';

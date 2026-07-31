@@ -8,6 +8,7 @@ import { posts } from '@/content/posts';
 export const metadata = pageMetadata(
   'Blog',
   'Notes on FMCG, field execution, and building Reshelvs.',
+  '/blog',
 );
 
 export default function BlogIndex() {

@@ -6,6 +6,7 @@ import { pageMetadata } from '@/lib/seo';
 export const metadata = pageMetadata(
   'Solutions',
   'How Reshelvs fits brand owners, distributors, retailers, and the field reps walking the stores.',
+  '/brands',
 );
 
 const segments = [
