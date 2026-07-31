@@ -18,8 +18,13 @@ export function ContactForm() {
 
   async function submit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
+    // Hold a real reference to the form: React nulls `e.currentTarget` once
+    // the handler yields, so touching it after the await threw a TypeError —
+    // which the catch below then reported as a failure even though the
+    // message had actually been sent.
+    const form = e.currentTarget;
     setState('loading');
-    const data = Object.fromEntries(new FormData(e.currentTarget).entries());
+    const data = Object.fromEntries(new FormData(form).entries());
     try {
       const res = await fetch('/api/contact', {
         method: 'POST',
@@ -27,12 +32,13 @@ export function ContactForm() {
         body: JSON.stringify(data),
       });
       if (!res.ok) throw new Error('Could not send. Try again or email us directly.');
+      form.reset();
       setState('ok');
       setMessage('Thanks — we received your note and will reply within one business day.');
-      (e.currentTarget as HTMLFormElement).reset();
-    } catch (err) {
+    } catch {
+      // Never surface a raw exception message to the visitor.
       setState('err');
-      setMessage(err instanceof Error ? err.message : 'Try again');
+      setMessage('Could not send. Try again, or email sales@reshelvs.com.');
     }
   }
 
