@@ -51,7 +51,11 @@ export function Footer() {
         aria-hidden
         className="pointer-events-none absolute inset-x-0 -top-px h-px bg-gradient-to-r from-transparent via-fg/25 to-transparent"
       />
-      <div className="mx-auto grid w-full max-w-6xl grid-cols-2 gap-10 px-6 py-20 md:grid-cols-5">
+      {/* 5-up only at lg: at 768px five columns collapse to ~112px each, which
+          wraps multi-word links ("On-shelf availability") into ragged stacks.
+          Tablets get the 2-column layout instead — matches the navbar, which
+          also switches to its desktop form at lg. */}
+      <div className="mx-auto grid w-full max-w-6xl grid-cols-2 gap-10 px-6 py-20 lg:grid-cols-5">
         <div className="col-span-2">
           <Link
             href="/"
