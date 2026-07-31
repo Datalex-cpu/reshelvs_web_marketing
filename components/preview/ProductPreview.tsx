@@ -2,10 +2,14 @@ export function ProductPreview() {
   return (
     <div className="relative">
       {/* Soft floor-glow so the preview feels lifted off the bg. fg-based so
-          it flips with the theme (faint dark halo on light, white on dark). */}
+          it flips with the theme (faint dark halo on light, white on dark).
+          Horizontally it spans exactly the component (inset-x-0): a negative
+          x-inset bled past the viewport and scrolled the page sideways on any
+          page whose section isn't overflow-hidden (e.g. /product at 393px).
+          The gradient fades out by 60% anyway, so the bleed wasn't visible. */}
       <div
         aria-hidden
-        className="pointer-events-none absolute -inset-x-20 -top-10 -bottom-10 bg-[radial-gradient(ellipse_at_center,rgb(var(--fg-rgb)/0.06),transparent_60%)]"
+        className="pointer-events-none absolute inset-x-0 -top-10 -bottom-10 bg-[radial-gradient(ellipse_at_center,rgb(var(--fg-rgb)/0.06),transparent_60%)]"
       />
       {/* Hairline highlight along the top, like a screen edge catching light. */}
       <div
