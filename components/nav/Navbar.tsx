@@ -73,7 +73,7 @@ export function Navbar() {
             <span className="tracking-tight text-[15px]">Reshelvs</span>
           </Link>
           <nav
-            className="hidden items-center gap-7 md:flex"
+            className="hidden items-center gap-7 lg:flex"
             aria-label="Primary"
           >
             {nav.map((item) => (
@@ -86,7 +86,7 @@ export function Navbar() {
               </Link>
             ))}
           </nav>
-          <div className="hidden items-center gap-2 md:flex">
+          <div className="hidden items-center gap-2 lg:flex">
             <ThemeToggle />
             <Button variant="ghost" size="sm" href="/login">
               Sign in
@@ -95,7 +95,7 @@ export function Navbar() {
               Get started
             </Button>
           </div>
-          <div className="flex items-center gap-2 md:hidden">
+          <div className="flex items-center gap-2 lg:hidden">
             <ThemeToggle />
             <button
               type="button"
@@ -118,7 +118,7 @@ export function Navbar() {
         aria-modal="true"
         aria-hidden={!open}
         className={cn(
-          'fixed inset-0 z-40 md:hidden',
+          'fixed inset-0 z-40 lg:hidden',
           // Toggle `visibility`, not just opacity: an opacity-0 panel keeps its
           // links in the tab order, so a keyboard user could tab into this
           // aria-hidden menu (WCAG 4.1.2). Transitioning visibility alongside
