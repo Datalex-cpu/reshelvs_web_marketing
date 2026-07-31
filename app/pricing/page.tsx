@@ -81,7 +81,7 @@ export default function PricingPage() {
         {tiers.map((t) => (
           <Card
             key={t.name}
-            className={t.highlight ? 'h-full ring-1 ring-white/20' : 'h-full'}
+            className={t.highlight ? 'h-full ring-1 ring-fg/25' : 'h-full'}
           >
             <div className="text-xs uppercase tracking-[0.15em] text-fg-subtle">
               {t.name}

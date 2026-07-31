@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Section, Eyebrow } from '@/components/ui/Section';
 import { Card } from '@/components/ui/Card';
+import { FadeIn } from '@/components/ui/FadeIn';
 import { pageMetadata } from '@/lib/seo';
 import { posts } from '@/content/posts';
 
@@ -16,7 +17,7 @@ export default function BlogIndex() {
       <h1 className="mt-5 font-display text-5xl font-medium tracking-display md:text-6xl">
         Notes from the field.
       </h1>
-      <div className="mt-16 grid gap-4 md:grid-cols-2">
+      <FadeIn className="mt-16 grid gap-4 md:grid-cols-2">
         {posts.map((p) => (
           <Link
             key={p.slug}
@@ -49,7 +50,7 @@ export default function BlogIndex() {
             </Card>
           </Link>
         ))}
-      </div>
+      </FadeIn>
     </Section>
   );
 }

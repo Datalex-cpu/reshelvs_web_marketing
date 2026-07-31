@@ -2,6 +2,7 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import { Section, Eyebrow } from '@/components/ui/Section';
 import { Card } from '@/components/ui/Card';
+import { FadeIn } from '@/components/ui/FadeIn';
 import { pageMetadata } from '@/lib/seo';
 import {
   connectorBySlug,
@@ -37,7 +38,7 @@ export default async function ConnectorDetailPage({
   return (
     <Section>
       <div className="flex items-center gap-2 text-xs uppercase tracking-wider text-fg-muted">
-        <Link href="/marketplace" className="hover:text-white">
+        <Link href="/marketplace" className="focus-ring hover:text-fg">
           Marketplace
         </Link>
         <span>·</span>
@@ -53,7 +54,7 @@ export default async function ConnectorDetailPage({
 
       <p className="mt-8 max-w-2xl text-lg leading-7">{c.description}</p>
 
-      <div className="mt-16 grid gap-6 md:grid-cols-2">
+      <FadeIn className="mt-16 grid gap-6 md:grid-cols-2">
         <Card>
           <h2 className="text-sm font-medium uppercase tracking-wider text-fg-muted">
             Capabilities
@@ -61,7 +62,7 @@ export default async function ConnectorDetailPage({
           <ul className="mt-4 space-y-2.5 text-sm">
             {c.capabilities.map((cap) => (
               <li key={cap} className="flex gap-3">
-                <span className="mt-2 h-1 w-1 rounded-full bg-white/40" />
+                <span className="mt-2 h-1 w-1 rounded-full bg-fg/40" />
                 <span>{cap}</span>
               </li>
             ))}
@@ -83,7 +84,7 @@ export default async function ConnectorDetailPage({
             ))}
           </ol>
         </Card>
-      </div>
+      </FadeIn>
 
       <div className="mt-12">
         <h2 className="text-xs font-medium uppercase tracking-wider text-fg-muted">
@@ -109,7 +110,7 @@ export default async function ConnectorDetailPage({
           {c.status === 'live' && (
             <>
               Available today. Enable from the admin app at{' '}
-              <span className="text-white">Settings → Integrations</span>.
+              <span className="text-fg">Settings → Integrations</span>.
             </>
           )}
           {c.status === 'beta' && (

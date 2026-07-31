@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { Section, Eyebrow } from '@/components/ui/Section';
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
+import { FadeIn } from '@/components/ui/FadeIn';
 import { pageMetadata } from '@/lib/seo';
 
 export const metadata = pageMetadata(
@@ -62,8 +63,9 @@ export default function QuickstartPage() {
       </p>
 
       <ol className="mt-14 space-y-4">
-        {steps.map((s) => (
+        {steps.map((s, i) => (
           <li key={s.n}>
+            <FadeIn delay={i * 0.05}>
             <Card hover={false} className="flex gap-5">
               <div className="num font-mono text-sm text-fg-subtle">{s.n}</div>
               <div>
@@ -75,6 +77,7 @@ export default function QuickstartPage() {
                 </p>
               </div>
             </Card>
+            </FadeIn>
           </li>
         ))}
       </ol>
