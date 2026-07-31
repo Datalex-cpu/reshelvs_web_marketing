@@ -1,5 +1,6 @@
 import { Section, Eyebrow } from '@/components/ui/Section';
 import { Button } from '@/components/ui/Button';
+import { FadeIn } from '@/components/ui/FadeIn';
 import { pageMetadata } from '@/lib/seo';
 
 export const metadata = pageMetadata(
@@ -78,8 +79,8 @@ export default function SolutionsPage() {
 
       <div className="mt-16 space-y-16">
         {segments.map((s, i) => (
-          <section
-            key={s.id}
+          <FadeIn key={s.id} delay={i * 0.04}>
+            <section
             id={s.id}
             className="grid items-start gap-10 border-t border-border pt-16 md:grid-cols-[1fr_1.4fr]"
           >
@@ -110,7 +111,8 @@ export default function SolutionsPage() {
                 </Button>
               </div>
             </div>
-          </section>
+            </section>
+          </FadeIn>
         ))}
       </div>
     </Section>

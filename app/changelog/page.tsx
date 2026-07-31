@@ -1,5 +1,6 @@
 import { Section, Eyebrow } from '@/components/ui/Section';
 import { Badge } from '@/components/ui/Badge';
+import { FadeIn } from '@/components/ui/FadeIn';
 import { pageMetadata } from '@/lib/seo';
 
 export const metadata = pageMetadata(
@@ -64,9 +65,9 @@ export default function ChangelogPage() {
         to get them in your inbox.
       </p>
       <div className="mt-16 space-y-12">
-        {entries.map((e) => (
-          <article
-            key={e.version}
+        {entries.map((e, i) => (
+          <FadeIn key={e.version} delay={i * 0.04}>
+            <article
             className="grid gap-6 border-t border-border pt-10 md:grid-cols-[140px_1fr]"
           >
             <div>
@@ -86,7 +87,8 @@ export default function ChangelogPage() {
               </h2>
               <p className="mt-2 max-w-2xl text-fg-muted">{e.body}</p>
             </div>
-          </article>
+            </article>
+          </FadeIn>
         ))}
       </div>
     </Section>

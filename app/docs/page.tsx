@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { Section, Eyebrow } from '@/components/ui/Section';
 import { Card } from '@/components/ui/Card';
 import { Button } from '@/components/ui/Button';
+import { FadeIn } from '@/components/ui/FadeIn';
 import { pageMetadata } from '@/lib/seo';
 
 export const metadata = pageMetadata(
@@ -69,7 +70,7 @@ export default function DocsPage() {
         </Button>
       </div>
 
-      <div className="mt-20 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+      <FadeIn className="mt-20 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {sections.map((s) => {
           const inner = (
             <Card hover={Boolean(s.href)} className="h-full">
@@ -93,7 +94,7 @@ export default function DocsPage() {
             <div key={s.tag}>{inner}</div>
           );
         })}
-      </div>
+      </FadeIn>
     </Section>
   );
 }

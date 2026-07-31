@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Section, Eyebrow } from '@/components/ui/Section';
 import { Card } from '@/components/ui/Card';
+import { FadeIn } from '@/components/ui/FadeIn';
 import { pageMetadata } from '@/lib/seo';
 
 export const metadata = pageMetadata(
@@ -66,7 +67,7 @@ export default function DevelopersPage() {
         API preview · available to design partners in private beta. Request
         early access and we&apos;ll send keys + docs.
       </p>
-      <div className="mt-16 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+      <FadeIn className="mt-16 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         {RESOURCES.map((r) => (
           <Link key={r.title} href={r.href} className="group block focus-visible:outline-none">
             <Card className="h-full">
@@ -80,7 +81,7 @@ export default function DevelopersPage() {
             </Card>
           </Link>
         ))}
-      </div>
+      </FadeIn>
     </Section>
   );
 }

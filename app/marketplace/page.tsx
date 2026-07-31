@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { Section, Eyebrow } from '@/components/ui/Section';
 import { Card } from '@/components/ui/Card';
+import { FadeIn } from '@/components/ui/FadeIn';
 import { pageMetadata } from '@/lib/seo';
 import {
   connectors,
@@ -52,7 +53,7 @@ export default function MarketplacePage() {
         const items = grouped[cat];
         if (!items) return null;
         return (
-          <div key={cat} className="mt-16">
+          <FadeIn key={cat} className="mt-16">
             <h2 className="text-xs font-medium uppercase tracking-wider text-fg-muted">
               {CATEGORY_LABEL[cat]}
             </h2>
@@ -89,7 +90,7 @@ export default function MarketplacePage() {
                 </Link>
               ))}
             </div>
-          </div>
+          </FadeIn>
         );
       })}
 
