@@ -33,7 +33,8 @@ const channels = [
 export default function ContactPage() {
   return (
     <Section>
-      <FadeIn>
+      {/* Above the fold — paints immediately, no reveal (LCP + no shift). */}
+      <div>
         <Eyebrow>Contact</Eyebrow>
         <h1 className="mt-5 max-w-3xl font-display text-5xl font-medium tracking-display md:text-6xl">
           Talk to us.
@@ -42,7 +43,7 @@ export default function ContactPage() {
           Tell us about your field operation. We'll get back within one business
           day — sooner if you're already running a beat.
         </p>
-      </FadeIn>
+      </div>
 
       <FadeIn
         className="mt-16 grid gap-12 md:grid-cols-[1.2fr_1fr]"

@@ -40,7 +40,8 @@ const roles = [
 export default function CareersPage() {
   return (
     <Section>
-      <FadeIn>
+      {/* Above the fold — paints immediately, no reveal (LCP + no shift). */}
+      <div>
         <Eyebrow>Careers</Eyebrow>
         <h1 className="mt-5 max-w-3xl font-display text-5xl font-medium tracking-display md:text-6xl">
           Help us build the OS for the field.
@@ -50,7 +51,7 @@ export default function CareersPage() {
           of FMCG distribution. We work in the open, ship every week, and
           spend a real amount of time in actual stores.
         </p>
-      </FadeIn>
+      </div>
       <FadeIn className="mt-16">
         <h2 className="font-display text-2xl font-medium tracking-tight text-fg">
           Open roles

@@ -35,7 +35,8 @@ export default function CustomersPage() {
   return (
     <>
       <Section>
-        <FadeIn>
+        {/* Above the fold — paints immediately, no reveal (LCP + no shift). */}
+        <div>
           <Eyebrow>Customers</Eyebrow>
           <h1 className="mt-5 max-w-3xl font-display text-5xl font-medium tracking-display md:text-6xl">
             Built for the teams that run the field.
@@ -48,7 +49,7 @@ export default function CustomersPage() {
             Illustrative scenarios · Reshelvs is in private beta — no named
             customers yet.
           </p>
-        </FadeIn>
+        </div>
         <FadeIn className="mt-16 grid gap-4 md:grid-cols-3" delay={0.05}>
           {customers.map((c) => (
             <Link

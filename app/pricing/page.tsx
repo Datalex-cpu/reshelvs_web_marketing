@@ -63,7 +63,8 @@ const tiers = [
 export default function PricingPage() {
   return (
     <Section>
-      <FadeIn className="text-center">
+      {/* Above the fold — paints immediately, no reveal (LCP + no shift). */}
+      <div className="text-center">
         <Eyebrow className="mx-auto">Pricing</Eyebrow>
         <h1 className="mx-auto mt-5 max-w-2xl font-display text-5xl font-medium tracking-display md:text-6xl">
           Simple. <span className="text-fg-muted">Per-rep. Honest.</span>
@@ -72,7 +73,7 @@ export default function PricingPage() {
           Pay only for the reps actively in the field. No setup fees, no
           minimums, no surprises.
         </p>
-      </FadeIn>
+      </div>
       <FadeIn
         className="mt-16 grid grid-cols-1 gap-5 md:grid-cols-3"
         delay={0.05}

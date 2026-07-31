@@ -35,7 +35,8 @@ export default function ProductPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(productJsonLd) }}
       />
       <Section>
-        <FadeIn>
+        {/* Above the fold — paints immediately, no reveal (LCP + no shift). */}
+        <div>
           <Eyebrow>Product</Eyebrow>
           <h1 className="mt-5 max-w-3xl font-display text-5xl font-medium tracking-display md:text-6xl">
             One platform.{' '}
@@ -52,7 +53,7 @@ export default function ProductPage() {
               Book a demo
             </Button>
           </div>
-        </FadeIn>
+        </div>
         <FadeIn className="mt-16" delay={0.05}>
           <ProductPreview />
         </FadeIn>
